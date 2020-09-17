@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		FC39AEBA25094AF800AD395A /* Hw3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AEB925094AF800AD395A /* Hw3App.swift */; };
-		FC39AEBC25094AF800AD395A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AEBB25094AF800AD395A /* ContentView.swift */; };
 		FC39AEBE25094AFA00AD395A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC39AEBD25094AFA00AD395A /* Assets.xcassets */; };
 		FC39AEC125094AFA00AD395A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC39AEC025094AFA00AD395A /* Preview Assets.xcassets */; };
 		FC39AECC25094AFA00AD395A /* Hw3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AECB25094AFA00AD395A /* Hw3Tests.swift */; };
 		FC39AED725094AFA00AD395A /* Hw3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AED625094AFA00AD395A /* Hw3UITests.swift */; };
+		FC39AEE52509602B00AD395A /* EmojiConcentrationGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AEE42509602B00AD395A /* EmojiConcentrationGameView.swift */; };
+		FC39AEE7250966F200AD395A /* ConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AEE6250966F200AD395A /* ConcentrationGame.swift */; };
+		FC39AF202512712200AD395A /* Array+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF1F2512712100AD395A /* Array+Index.swift */; };
+		FC39AF222512752D00AD395A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF212512752D00AD395A /* CardView.swift */; };
+		FC39AF282512835800AD395A /* EmojiConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF272512835800AD395A /* EmojiConcentrationGame.swift */; };
+		FC39AF2A2512BCC600AD395A /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF292512BCC600AD395A /* Array+Only.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +40,6 @@
 /* Begin PBXFileReference section */
 		FC39AEB625094AF800AD395A /* Hw3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hw3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC39AEB925094AF800AD395A /* Hw3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hw3App.swift; sourceTree = "<group>"; };
-		FC39AEBB25094AF800AD395A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC39AEBD25094AFA00AD395A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC39AEC025094AFA00AD395A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC39AEC225094AFA00AD395A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +49,12 @@
 		FC39AED225094AFA00AD395A /* Hw3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hw3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC39AED625094AFA00AD395A /* Hw3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hw3UITests.swift; sourceTree = "<group>"; };
 		FC39AED825094AFA00AD395A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC39AEE42509602B00AD395A /* EmojiConcentrationGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiConcentrationGameView.swift; sourceTree = "<group>"; };
+		FC39AEE6250966F200AD395A /* ConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGame.swift; sourceTree = "<group>"; };
+		FC39AF1F2512712100AD395A /* Array+Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Index.swift"; sourceTree = "<group>"; };
+		FC39AF212512752D00AD395A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		FC39AF272512835800AD395A /* EmojiConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiConcentrationGame.swift; sourceTree = "<group>"; };
+		FC39AF292512BCC600AD395A /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +105,13 @@
 		FC39AEB825094AF800AD395A /* Hw3 */ = {
 			isa = PBXGroup;
 			children = (
-				FC39AEB925094AF800AD395A /* Hw3App.swift */,
-				FC39AEBB25094AF800AD395A /* ContentView.swift */,
+				FC39AF25251281D700AD395A /* View */,
+				FC39AF24251281CC00AD395A /* ViewModel */,
+				FC39AF23251281BB00AD395A /* Model */,
 				FC39AEBD25094AFA00AD395A /* Assets.xcassets */,
 				FC39AEC225094AFA00AD395A /* Info.plist */,
 				FC39AEBF25094AFA00AD395A /* Preview Content */,
+				FC39AF26251282E000AD395A /* Utility */,
 			);
 			path = Hw3;
 			sourceTree = "<group>";
@@ -128,6 +140,41 @@
 				FC39AED825094AFA00AD395A /* Info.plist */,
 			);
 			path = Hw3UITests;
+			sourceTree = "<group>";
+		};
+		FC39AF23251281BB00AD395A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC39AEE6250966F200AD395A /* ConcentrationGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC39AF24251281CC00AD395A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC39AF272512835800AD395A /* EmojiConcentrationGame.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FC39AF25251281D700AD395A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC39AEB925094AF800AD395A /* Hw3App.swift */,
+				FC39AF212512752D00AD395A /* CardView.swift */,
+				FC39AEE42509602B00AD395A /* EmojiConcentrationGameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC39AF26251282E000AD395A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FC39AF1F2512712100AD395A /* Array+Index.swift */,
+				FC39AF292512BCC600AD395A /* Array+Only.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC39AEBC25094AF800AD395A /* ContentView.swift in Sources */,
+				FC39AF282512835800AD395A /* EmojiConcentrationGame.swift in Sources */,
+				FC39AF202512712200AD395A /* Array+Index.swift in Sources */,
 				FC39AEBA25094AF800AD395A /* Hw3App.swift in Sources */,
+				FC39AEE52509602B00AD395A /* EmojiConcentrationGameView.swift in Sources */,
+				FC39AF222512752D00AD395A /* CardView.swift in Sources */,
+				FC39AF2A2512BCC600AD395A /* Array+Only.swift in Sources */,
+				FC39AEE7250966F200AD395A /* ConcentrationGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
