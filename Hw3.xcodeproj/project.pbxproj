@@ -18,6 +18,11 @@
 		FC39AF222512752D00AD395A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF212512752D00AD395A /* CardView.swift */; };
 		FC39AF282512835800AD395A /* EmojiConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF272512835800AD395A /* EmojiConcentrationGame.swift */; };
 		FC39AF2A2512BCC600AD395A /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF292512BCC600AD395A /* Array+Only.swift */; };
+		FC39AF2C2513B1D200AD395A /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF2B2513B1D200AD395A /* Pie.swift */; };
+		FC39AF2E251D0C1A00AD395A /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF2D251D0C1A00AD395A /* Cardify.swift */; };
+		FC39AF30251ED0D400AD395A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF2F251ED0D400AD395A /* Menu.swift */; };
+		FC39AF34251EE56D00AD395A /* OptionMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF33251EE56D00AD395A /* OptionMenuView.swift */; };
+		FC39AF36251EE5BC00AD395A /* TypeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF35251EE5BC00AD395A /* TypeGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		FC39AF212512752D00AD395A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		FC39AF272512835800AD395A /* EmojiConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiConcentrationGame.swift; sourceTree = "<group>"; };
 		FC39AF292512BCC600AD395A /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
+		FC39AF2B2513B1D200AD395A /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		FC39AF2D251D0C1A00AD395A /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
+		FC39AF2F251ED0D400AD395A /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		FC39AF33251EE56D00AD395A /* OptionMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionMenuView.swift; sourceTree = "<group>"; };
+		FC39AF35251EE5BC00AD395A /* TypeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +155,7 @@
 		FC39AF23251281BB00AD395A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FC39AF35251EE5BC00AD395A /* TypeGame.swift */,
 				FC39AEE6250966F200AD395A /* ConcentrationGame.swift */,
 			);
 			path = Model;
@@ -164,6 +175,10 @@
 				FC39AEB925094AF800AD395A /* Hw3App.swift */,
 				FC39AF212512752D00AD395A /* CardView.swift */,
 				FC39AEE42509602B00AD395A /* EmojiConcentrationGameView.swift */,
+				FC39AF2B2513B1D200AD395A /* Pie.swift */,
+				FC39AF2D251D0C1A00AD395A /* Cardify.swift */,
+				FC39AF2F251ED0D400AD395A /* Menu.swift */,
+				FC39AF33251EE56D00AD395A /* OptionMenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,11 +323,16 @@
 			files = (
 				FC39AF282512835800AD395A /* EmojiConcentrationGame.swift in Sources */,
 				FC39AF202512712200AD395A /* Array+Index.swift in Sources */,
+				FC39AF2C2513B1D200AD395A /* Pie.swift in Sources */,
+				FC39AF2E251D0C1A00AD395A /* Cardify.swift in Sources */,
+				FC39AF30251ED0D400AD395A /* Menu.swift in Sources */,
+				FC39AF36251EE5BC00AD395A /* TypeGame.swift in Sources */,
 				FC39AEBA25094AF800AD395A /* Hw3App.swift in Sources */,
 				FC39AEE52509602B00AD395A /* EmojiConcentrationGameView.swift in Sources */,
 				FC39AF222512752D00AD395A /* CardView.swift in Sources */,
 				FC39AF2A2512BCC600AD395A /* Array+Only.swift in Sources */,
 				FC39AEE7250966F200AD395A /* ConcentrationGame.swift in Sources */,
+				FC39AF34251EE56D00AD395A /* OptionMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

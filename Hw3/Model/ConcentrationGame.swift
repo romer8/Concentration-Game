@@ -8,7 +8,7 @@
 import Foundation
 
 struct ConcentrationGame<CardContent> where CardContent: Equatable{
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     var score: Int = 0
     let addScore: Int = 2
     let substractScore:Int = 1
@@ -36,6 +36,9 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
     mutating func choose(_ card: Card){
         if let chosenIndex = cards.firstIndex(matching:card),
                 !cards[chosenIndex].isFaceUp,!cards[chosenIndex].isMatched{
+            
+            cards[chosenIndex].viewCount += 1
+            
             if let potentialMatchIndex = indexOfTheOneAndOnlyOneFaceUpCard{
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content{
                     cards[chosenIndex].isMatched = true
@@ -43,9 +46,11 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
                     score = score + addScore
                 }
                 else{
-                    if(score > 0 ){
-                        score = score - substractScore
-                    }
+                    cards[chosenIndex].markMismatched()
+                    cards[potentialMatchIndex].markMismatched()
+//                    if(score > 0 ){
+//                        score = score - substractScore
+//                    }
                 }
                 cards[chosenIndex].isFaceUp = true
             }
@@ -57,10 +62,78 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
             
     }    
     struct Card: Identifiable{
-        var isFaceUp = false
-        var isMatched = false
-        var content: CardContent
-        var id: Int
+        private let matchScore = 5
+        private let maxMatchBonus = 5.0
+        fileprivate(set) var isFaceUp = false{
+            didSet{
+                if isFaceUp{
+                    startUsingBonusTime()
+                }else{
+                    stopUsingBonusTime()
+                }
+            }
+        }
+        fileprivate(set) var isMatched = false{
+            didSet{
+                stopUsingBonusTime()
+            }
+        }
+        fileprivate(set) var mismatchedCount = 0
+        fileprivate(set) var viewCount = 0
+        fileprivate(set) var content: CardContent
+        fileprivate(set) var id: Int
+        
+        var score: Int{
+            if isMatched{
+                return matchScore + Int(bonusRemaining * maxMatchBonus)
+            }else{
+                return 0
+            }
+        }
+        
+        fileprivate mutating func markMismatched(){
+            if viewCount > 1{
+                mismatchedCount += 1
+            }
+        }
+        // MARK: - Bonus Time
+        
+        var bonusTimeLimit: TimeInterval = 5
+        var lastFaceUpTime: Date?
+        var pastFaceUpTime: TimeInterval = 0
+        
+        var bonusTimeRemaining: Double {
+            max(0,bonusTimeLimit - faceUpTime)
+        }
+        var bonusRemaining: Double{
+            (bonusTimeLimit > 0 && bonusTimeRemaining > 0) ? bonusTimeRemaining/bonusTimeLimit : 0
+        }
+        var hasEarnedBonus: Bool{
+            isMatched && bonusTimeRemaining > 0
+        }
+        var isConsumingBonusTime: Bool{
+            isFaceUp && !isMatched && bonusTimeRemaining > 0
+        }
+        
+        private var faceUpTime: TimeInterval{
+            if let lastFaceUpTime = lastFaceUpTime{
+                return pastFaceUpTime + Date().timeIntervalSince(lastFaceUpTime)
+            }
+            else{
+                return pastFaceUpTime
+            }
+        }
+        private mutating func startUsingBonusTime(){
+            if isConsumingBonusTime && lastFaceUpTime == nil{
+                lastFaceUpTime = Date()
+            }
+        }
+        private mutating func stopUsingBonusTime(){
+            pastFaceUpTime = faceUpTime
+            lastFaceUpTime = nil
+        }
+        
+
     }
     
 }

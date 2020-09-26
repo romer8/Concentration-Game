@@ -16,28 +16,21 @@ struct EmojiConcentrationGameView: View{
         Array(repeating: GridItem(.flexible()), count: Int(size.width/desiredCardWidth))
     }
     var body:some View {
-        
+        ScrollView{
+//          Color.black.edgesIgnoringSafeArea(.all)
             GeometryReader { geometry in
-                Color.black.edgesIgnoringSafeArea(.all)
-                VStack{
+                VStack {
                     HStack{
-                        Text("Score")                                .foregroundColor(.white)
-                            .font(.system(size: 15))
-                        Spacer()
-                        Text(emojiGame.score).foregroundColor(.white)
-                            .font(.system(size: 30))
-                        Spacer()
-                        Button(action: {
-                            emojiGame.startNewGame()
-                        }) {
-                            Text("New Game")
-                                .padding()
-                                .cornerRadius(70)
-                                .background(Color.purple)
-                                .foregroundColor(.white)
-                                .font(.system(size: 15))
-                                
+                        Button("new game"){
+                            withAnimation(.easeInOut(duration:0.75)){
+                                emojiGame.startNewGame()
+                            }
                         }
+                        Spacer()
+                        Spacer()
+                        Text("Score: \(emojiGame.score)")                                .foregroundColor(.white)
+                            .font(.system(size: 15))
+                       
                     }
                     .padding()
                     .background(Color.black)
@@ -46,17 +39,22 @@ struct EmojiConcentrationGameView: View{
                         ForEach(emojiGame.cards){ card in
                             CardView(card: card)
                                 .onTapGesture{
-                                    emojiGame.choose(card)
+                                    withAnimation(.linear(duration:2)){
+                                        emojiGame.choose(card)
+                                    }
                                 }
                         }
                     }
-                    .padding()
-                    .foregroundColor(.blue)
 
                 }
-                
+                .padding()
+                .foregroundColor(.blue)
 
+            
             }
+        
+        }
+
 
     }
     private let desiredCardWidth: CGFloat = 100

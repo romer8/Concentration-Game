@@ -8,7 +8,9 @@
 import Foundation
 class EmojiConcentrationGame: ObservableObject{
     @Published private var game = createGame()
-    static let emojis = ["🍏","🍎","🍊","🍋","🍈","🥦"]
+    
+    private static let emojis = ["🍏","🍎","🍊","🍋","🍈","🥦"]
+    
     static func createGame()-> ConcentrationGame<String> {
         ConcentrationGame<String>( numberOfPairsOfCards: emojis.count){index in emojis[index]
         }
@@ -17,8 +19,20 @@ class EmojiConcentrationGame: ObservableObject{
     var cards: Array<ConcentrationGame<String>.Card> {
         game.cards
     }
-    var score: String{
-        String(game.score)
+//    var score: String{
+//        String(game.score)
+//    }
+    var score: Int{
+        var totalScore = 0
+        for card in cards{
+            if card.isMatched{
+                totalScore += 1
+                
+            }
+            totalScore -= card.mismatchedCount
+        }
+        
+        return totalScore
     }
 
     // MARK: - Intents
