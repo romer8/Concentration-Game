@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct OptionMenuView: View {
+struct GameOptionView: View {
     @State var nameGameTitle: String
     @State var selectionThemes = 0
-    @State var Themes: [String]
+    @State var ThemesVM: [ThemeViewModel]
     
     @State var selectionPairs = 0
     @State var numberPairsLimit = 10
@@ -22,8 +22,8 @@ struct OptionMenuView: View {
             Text("Themes").bold()
             
             Picker("Themes",selection: $selectionThemes) {
-               ForEach(0 ..< Themes.count) {
-                  Text(self.Themes[$0])
+               ForEach(0 ..< ThemesVM.count) { themevm in
+                Text(self.ThemesVM[themevm].getName())
                }
             }
             .labelsHidden()
@@ -41,7 +41,7 @@ struct OptionMenuView: View {
             .frame(width: 150, height: 30, alignment: .center)
             .clipped()
             Button("Play"){
-                
+
             }
             .padding()
         }
@@ -51,6 +51,7 @@ struct OptionMenuView: View {
 
 struct OptionMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        OptionMenuView(nameGameTitle: "EmojiMojo", Themes:["Halloween","Fruits","Emojis","Animals","Music","Cars"])
+        GameOptionView(nameGameTitle: "EmojiMojo", ThemesVM: [ThemeViewModel(name: "hola", color: "fffff", emojis: ["sss","sss","sss"])])
+
     }
 }

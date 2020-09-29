@@ -9,6 +9,7 @@ import Foundation
 
 struct ConcentrationGame<CardContent> where CardContent: Equatable{
     private(set) var cards: Array<Card>
+    var gameName: String
     var score: Int = 0
     let addScore: Int = 2
     let substractScore:Int = 1
@@ -21,9 +22,10 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
         }
     }
     
-    init (numberOfPairsOfCards:Int, cardContentFactory: (Int) -> CardContent){
+    init (name: String,numberOfPairsOfCards:Int, cardContentFactory: (Int) -> CardContent){
         cards = Array<Card>()
         score = 0
+        gameName = name
         for pairIndex in 0..<numberOfPairsOfCards{
             let content = cardContentFactory(pairIndex)
             

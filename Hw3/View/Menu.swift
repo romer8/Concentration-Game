@@ -8,35 +8,31 @@
 import SwiftUI
 
 struct Menu: View {
-    private var EmojiMojoThemes = ["Halloween","Fruits","Emojis","Animals","Music","Cars"]
-//    private var TempleThemes = ["SouthAmerica","Utah","Asia","Europe","NorthAmerica","Africa"]
-    private var gamesList = ["Emoji Mojo", "Temple Match", "Shape Match"]
+    var GameMenu = GamesViewModel()
+
     @State var selectedGame = 0
     @State var isActive = false
 
-
-    var body: some View {
+    var body: some View{
         NavigationView {
-
             VStack{
                 Text("Concentration Games")
                     .bold()
                     .font(.system(size: 40))
                     .multilineTextAlignment(.center)
                     .padding()
-                Text("select a game:")
-                    .padding()
-                    .font(.system(size: 20))
+
                 Picker(selection: $selectedGame, label: Text("Select Your Story")) {
-                    ForEach(0 ..< gamesList.count) { gameli in
-                        NavigationLink(gamesList[gameli],
-                                       destination: OptionMenuView(nameGameTitle:"Emoji Mojo", Themes: EmojiMojoThemes),
-                                       isActive: $isActive)
+                    ForEach(0 ..< GameMenu.getGameList().count) { gameli in
+                        NavigationLink(GameMenu.getGameList()[gameli], destination: GameOptionView(nameGameTitle: GameMenu.getGameList()[gameli], ThemesVM: GameMenu.getThemesforGames(option: gameli)),isActive: $isActive)
                     }
                 }
                 .onChange(of: selectedGame, perform: { _ in
                     isActive.toggle()
                 })
+                .labelsHidden()
+                .frame(width: 150, height: 30, alignment: .center)
+                .padding()
                 
                 
                 
@@ -45,9 +41,7 @@ struct Menu: View {
 //                        Text(self.gamesList[$0])
 //                    }
 //                }
-//                .labelsHidden()
-//                .frame(width: 150, height: 30, alignment: .center)
-//                .padding()
+
                 
     //            HStack{
     //                OptionMenuView(nameGameTitle:"Emoji Mojo", Themes: EmojiMojoThemes)

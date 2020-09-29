@@ -23,7 +23,7 @@ struct EmojiConcentrationGameView: View{
                     HStack{
                         Button("new game"){
                             withAnimation(.easeInOut(duration:0.75)){
-                                emojiGame.startNewGame()
+//                                emojiGame.startNewGame()
                             }
                         }
                         Spacer()
@@ -63,6 +63,6 @@ struct EmojiConcentrationGameView: View{
 struct EmojiConcentrationGameView_Previews:
     PreviewProvider{
     static var previews: some View{
-        EmojiConcentrationGameView(emojiGame:EmojiConcentrationGame())
+        EmojiConcentrationGameView(emojiGame:EmojiConcentrationGame(name: "EmojiMojo", themevm: ThemeViewModel(name: "EmojiGeneral", color: "FFFF", emojis: ["r","f","x","s"]), numberCards: 10))
     }
 }

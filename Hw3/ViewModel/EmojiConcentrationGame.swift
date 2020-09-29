@@ -7,13 +7,33 @@
 
 import Foundation
 class EmojiConcentrationGame: ObservableObject{
-    @Published private var game = createGame()
+    var nameGame: String
+    var numberOfCards: Int
+    var themeVM: ThemeViewModel
+    @Published private var game: ConcentrationGame<String>
     
-    private static let emojis = ["🍏","🍎","🍊","🍋","🍈","🥦"]
     
-    static func createGame()-> ConcentrationGame<String> {
-        ConcentrationGame<String>( numberOfPairsOfCards: emojis.count){index in emojis[index]
+//    @Published private var game = createGame()
+    
+//    private static let emojis = ["🍏","🍎","🍊","🍋","🍈","🥦"]
+    
+//    static func createGame()-> ConcentrationGame<String> {
+//        ConcentrationGame<String>(numberOfPairsOfCards: emojis.count){index in emojis[index]}
+//    }
+    static func createGame(name: String, emojis: [String])-> ConcentrationGame<String> {
+        ConcentrationGame<String>(name: name, numberOfPairsOfCards: emojis.count){index in emojis[index]}
+    }
+    
+    init(name: String, themevm: ThemeViewModel, numberCards:Int){
+        nameGame = name
+        numberOfCards = numberCards
+        themeVM = themevm
+        var emojis: [String] = []
+        for index in 0...numberOfCards{
+            emojis.append(themevm.getEmojis()[index])
         }
+
+        game = EmojiConcentrationGame.createGame(name: name, emojis: emojis)
     }
     // MARK: - Access to Model
     var cards: Array<ConcentrationGame<String>.Card> {
@@ -39,8 +59,8 @@ class EmojiConcentrationGame: ObservableObject{
     func choose(_ card:ConcentrationGame<String>.Card) {
         game.choose(card)
     }
-    func startNewGame(){
-        game = EmojiConcentrationGame.createGame()
+    func startNewGame(name: String, emojis: [String]){
+        game = EmojiConcentrationGame.createGame(name: name, emojis: emojis)
     }
     
 
