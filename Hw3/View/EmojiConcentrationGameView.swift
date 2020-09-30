@@ -20,33 +20,56 @@ struct EmojiConcentrationGameView: View{
 //          Color.black.edgesIgnoringSafeArea(.all)
             GeometryReader { geometry in
                 VStack {
-                    LazyVGrid(columns: columns(for:
-                        geometry.size)){
-                        ForEach(emojiGame.cards){ card in
-                            CardView(card: card)
-                                .onTapGesture{
-                                    withAnimation(.linear(duration:0.5)){
-                                        emojiGame.choose(card)
+                    if(emojiGame.getRemainingPairs() > 0){
+                        LazyVGrid(columns: columns(for:
+                            geometry.size)){
+                            ForEach(emojiGame.cards){ card in
+                                CardView(card: card)
+                                    .onTapGesture{
+                                        withAnimation(.linear(duration:0.5)){
+                                            emojiGame.choose(card)
+                                        }
                                     }
-                                }
-                        }
-                    }
-                    HStack{
-                        Button("new game"){
-                            withAnimation(.easeInOut(duration:0.75)){
-//                                emojiGame.startNewGame()
                             }
                         }
-                        Spacer()
-                        Spacer()
-                        Text("Score: \(emojiGame.score)")                                .foregroundColor(.white)
-                            .font(.system(size: 15))
+                        HStack{
+                            Button("new game"){
+                                withAnimation(.easeInOut(duration:0.75)){
+    //                                emojiGame.startNewGame()
+                                }
+                            }
+                            Spacer()
+                            Spacer()
+                            Text("Score: \(emojiGame.score)")                                .foregroundColor(.white)
+                                .font(.system(size: 15))
+                        }
+                        .padding()
+                        .background(Color.black)
                     }
-                    .padding()
-                    .background(Color.black)
+                    else{
+                    Text("You have completed the Game")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 30))
+                        .padding()
+                        .animation(.easeInOut(duration: 5))
+//                        HStack{
+                            Button("new game"){
+                                withAnimation(.easeInOut(duration:0.75)){
+//                                    emojiGame.startNewGame()
+                                }
+                            }
 
+                            Text("Your Score is : \(emojiGame.score)")
+                                .font(.system(size: 20))
+                                .padding()
+//                        }
+
+                        
+                    }
                 }
                 .foregroundColor(.blue)
+                    
             }
         }
     }

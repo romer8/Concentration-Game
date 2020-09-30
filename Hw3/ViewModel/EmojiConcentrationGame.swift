@@ -56,6 +56,9 @@ class EmojiConcentrationGame: ObservableObject{
         
         return totalScore
     }
+    func getRemainingPairs() -> Int{
+        return game.numberOfPairs
+    }
 
     // MARK: - Intents
     func choose(_ card:ConcentrationGame<String>.Card) {

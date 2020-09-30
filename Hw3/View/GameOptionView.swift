@@ -52,7 +52,7 @@ struct GameOptionView: View {
                         )
                 { Text("▶️") }.padding()
             Text("You selected: \(ThemesVM.getThemesforGames()[selectionThemes].getName())")
-            
+            Text("You selected: \(selectionPairs + 1) \(" pairs")")
 
         }
         

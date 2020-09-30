@@ -9,6 +9,7 @@ import Foundation
 
 struct ConcentrationGame<CardContent> where CardContent: Equatable{
     private(set) var cards: Array<Card>
+    var numberOfPairs: Int = 0
     var gameName: String
     var score: Int = 0
     let addScore: Int = 2
@@ -26,6 +27,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
         cards = Array<Card>()
         score = 0
         gameName = name
+        numberOfPairs = numberOfPairsOfCards
         for pairIndex in 0..<numberOfPairsOfCards{
             let content = cardContentFactory(pairIndex)
             
@@ -46,6 +48,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
                     score = score + addScore
+                    numberOfPairs = numberOfPairs - 1
                 }
                 else{
                     cards[chosenIndex].markMismatched()

@@ -39,7 +39,7 @@ class GamesViewModel{
             let c = String(UnicodeScalar(i) ?? "-")
             foodDrinks.append(c)
         }
-        for i in 0x2620...0x1F600{
+        for i in 0x1F600...0x1F92C{
             let c = String(UnicodeScalar(i) ?? "-")
             emojiFaces.append(c)
         }
