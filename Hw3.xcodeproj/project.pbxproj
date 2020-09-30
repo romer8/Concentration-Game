@@ -28,6 +28,7 @@
 		FC39AF3A251FB97500AD395A /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF39251FB97500AD395A /* ThemeViewModel.swift */; };
 		FC8503CB2523E493007ABE8A /* GameOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */; };
 		FC87900325242B6900FC1710 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87900225242B6900FC1710 /* NavigationLazyView.swift */; };
+		FCDF40DF2524FCD6007A8F33 /* UIColor + Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF40DE2524FCD6007A8F33 /* UIColor + Hex.swift */; };
 		FCFFB8A12522B3D1001BA17D /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFB8A02522B3D1001BA17D /* testView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		FC39AF39251FB97500AD395A /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
 		FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionViewModel.swift; sourceTree = "<group>"; };
 		FC87900225242B6900FC1710 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
+		FCDF40DE2524FCD6007A8F33 /* UIColor + Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Hex.swift"; sourceTree = "<group>"; };
 		FCFFB8A02522B3D1001BA17D /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +208,7 @@
 			children = (
 				FC39AF1F2512712100AD395A /* Array+Index.swift */,
 				FC39AF292512BCC600AD395A /* Array+Only.swift */,
+				FCDF40DE2524FCD6007A8F33 /* UIColor + Hex.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				FC39AEE7250966F200AD395A /* ConcentrationGame.swift in Sources */,
 				FC87900325242B6900FC1710 /* NavigationLazyView.swift in Sources */,
 				FC39AF3A251FB97500AD395A /* ThemeViewModel.swift in Sources */,
+				FCDF40DF2524FCD6007A8F33 /* UIColor + Hex.swift in Sources */,
 				FC39AF34251EE56D00AD395A /* GameOptionView.swift in Sources */,
 				FC8503CB2523E493007ABE8A /* GameOptionViewModel.swift in Sources */,
 			);

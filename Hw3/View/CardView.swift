@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardView: View{
+    var colorTheme: String = "FFFFFF"
     var card: ConcentrationGame<String>.Card
     @State private var animatedBonusRemaining = 0.0 
     var body : some View{
@@ -37,7 +38,7 @@ struct CardView: View{
                         .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false): .default)
 
                 }
-                .cardify(isFaceUp: card.isFaceUp)
+                .cardify(isFaceUp: card.isFaceUp, colorHex: colorTheme)
                 .transition(.scale)
             }
 
@@ -64,7 +65,7 @@ struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         CardView(card:
                     ConcentrationGame<String>.Card(isFaceUp:true, content:
-            "🥝",id:1))
+            "🥝"))
             .padding(50)
         
     }

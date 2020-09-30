@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Cardify: AnimatableModifier {
     var rotation: Double
+    var colorHex: String
     var isFaceUp: Bool{
         rotation < 90
     }
@@ -16,8 +17,9 @@ struct Cardify: AnimatableModifier {
         get{ rotation}
         set{ rotation = newValue}
     }
-    init(isFaceUp:Bool){
+    init(isFaceUp:Bool, colorHexCode: String){
         rotation = isFaceUp ? 0 : 180
+        colorHex = colorHexCode
     }
     private let cardCornerRadius:CGFloat = 10.0
     func body(content: Content)-> some View {
@@ -27,8 +29,7 @@ struct Cardify: AnimatableModifier {
                 RoundedRectangle(cornerRadius:cardCornerRadius).stroke()
                 content
             }.opacity(isFaceUp ? 1 : 0)
-
-            RoundedRectangle(cornerRadius: cardCornerRadius).fill()
+            RoundedRectangle(cornerRadius: cardCornerRadius).fill(            Color(UIColor(hexString: colorHex)))
                 .opacity(isFaceUp ? 0 :1 )
         }
         .rotation3DEffect(
@@ -38,14 +39,14 @@ struct Cardify: AnimatableModifier {
     }
 }
 extension View{
-    func cardify(isFaceUp:Bool) -> some View{
-        modifier(Cardify(isFaceUp: isFaceUp))
+    func cardify(isFaceUp:Bool,colorHex: String) -> some View{
+        modifier(Cardify(isFaceUp: isFaceUp,colorHexCode: colorHex))
     }
     
 }
 struct Cardify_Previews: PreviewProvider {
     static var previews: some View {
-        Text("🍎").modifier(Cardify(isFaceUp: true))
+        Text("🍎").modifier(Cardify(isFaceUp: true, colorHexCode: "6909A1"))
             .padding()
     }
 }

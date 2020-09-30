@@ -60,12 +60,12 @@ class GamesViewModel{
             randomEmotis.append(c)
         }
        
-        let emojiFacesTheme = ThemeViewModel(name: "Emoji Faces", color: "fffff", emojis: emojiFaces)
-        let foodDrinksTheme = ThemeViewModel(name: "Food Drinks", color: "fffff", emojis: foodDrinks)
-        let animalsTheme = ThemeViewModel(name: "Animals", color: "fffff", emojis: animals)
-        let bodyTheme = ThemeViewModel(name: "Body", color: "fffff", emojis: body)
-        let peopleTheme = ThemeViewModel(name: "People", color: "fffff", emojis: people)
-        let randomTheme = ThemeViewModel(name: "Random", color: "fffff", emojis: randomEmotis)
+        let emojiFacesTheme = ThemeViewModel(name: "Emoji Faces", color: "ffff00", emojis: emojiFaces)
+        let foodDrinksTheme = ThemeViewModel(name: "Food Drinks", color: "69960e", emojis: foodDrinks)
+        let animalsTheme = ThemeViewModel(name: "Animals", color: "ffa500", emojis: animals)
+        let bodyTheme = ThemeViewModel(name: "Body", color: "87ceeb", emojis: body)
+        let peopleTheme = ThemeViewModel(name: "People", color: "ffc0cb ", emojis: people)
+        let randomTheme = ThemeViewModel(name: "Random", color: randomHexColorCode(), emojis: randomEmotis)
         
         emojiThemesVM.append(emojiFacesTheme)
         emojiThemesVM.append(foodDrinksTheme)
@@ -117,6 +117,11 @@ class GamesViewModel{
            gamesAvailable.append(game.concentrationGameName)
         }
         return gamesAvailable
+    }
+    
+    static func randomHexColorCode() -> String{
+        let a = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+        return a[Int(arc4random_uniform(15))].appending(a[Int(arc4random_uniform(15))]).appending(a[Int(arc4random_uniform(15))])
     }
     // MARK: - Intents
 

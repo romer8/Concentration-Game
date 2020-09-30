@@ -24,14 +24,29 @@ struct EmojiConcentrationGameView: View{
                         LazyVGrid(columns: columns(for:
                             geometry.size)){
                             ForEach(emojiGame.cards){ card in
-                                CardView(card: card)
+                                CardView(colorTheme: emojiGame.getColorTheme(), card: card )
                                     .onTapGesture{
                                         withAnimation(.linear(duration:0.5)){
                                             emojiGame.choose(card)
                                         }
                                     }
+                                    .transition(AnyTransition.offset(
+                                        randomLocationOffScreen(for: geometry.size)
+                                    ))
                             }
                         }
+                        .onAppear {
+                            DispatchQueue.main.async {
+                                withAnimation(Animation.easeInOut) {
+                                     emojiGame.dealCards()
+                                }
+                            }
+
+                        }
+                        Spacer()
+                        Spacer()
+
+
                         HStack{
                             Button("new game"){
                                 withAnimation(.easeInOut(duration:0.75)){
@@ -56,7 +71,7 @@ struct EmojiConcentrationGameView: View{
 //                        HStack{
                             Button("new game"){
                                 withAnimation(.easeInOut(duration:0.75)){
-//                                    emojiGame.startNewGame()
+                                    emojiGame.startNewGame()
                                 }
                             }
 
@@ -74,6 +89,18 @@ struct EmojiConcentrationGameView: View{
         }
     }
     private let desiredCardWidth: CGFloat = 100
+    
+    func randomLocationOffScreen(for size: CGSize) -> CGSize {
+        var randomSize = CGSize.zero
+        let randomAngle = Double.random(in: 0..<Double.pi * 2)
+        let scaleFactor = max(size.width, size.height) * 1.5
+
+        randomSize.width = CGFloat(sin(randomAngle)) * scaleFactor
+        randomSize.height = CGFloat(cos(randomAngle)) * scaleFactor
+        print("my random size")
+        print(randomSize)
+        return randomSize
+    }
 }
 
 struct EmojiConcentrationGameView_Previews:

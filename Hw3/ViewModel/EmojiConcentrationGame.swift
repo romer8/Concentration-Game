@@ -11,6 +11,7 @@ class EmojiConcentrationGame: ObservableObject{
     var numberOfCards: Int
     @Published var themeVM: ThemeViewModel
     @Published private var game: ConcentrationGame<String>
+    @Published private var isVisible = false
     
     
 //    @Published private var game = createGame()
@@ -39,7 +40,12 @@ class EmojiConcentrationGame: ObservableObject{
     }
     // MARK: - Access to Model
     var cards: Array<ConcentrationGame<String>.Card> {
-        game.cards
+        if isVisible {
+            return game.cards
+        }
+        else{
+            return []
+        }
     }
 //    var score: String{
 //        String(game.score)
@@ -59,13 +65,25 @@ class EmojiConcentrationGame: ObservableObject{
     func getRemainingPairs() -> Int{
         return game.numberOfPairs
     }
+    func getColorTheme() -> String {
+        return themeVM.getColor()
+    }
 
     // MARK: - Intents
     func choose(_ card:ConcentrationGame<String>.Card) {
         game.choose(card)
     }
-    func startNewGame(name: String, emojis: [String]){
-        game = EmojiConcentrationGame.createGame(name: name, emojis: emojis)
+    func startNewGame(){
+        var emojis: [String] = []
+        for index in 0...numberOfCards{
+            emojis.append(themeVM.getEmojis()[index])
+        }
+        game = EmojiConcentrationGame.createGame(name: game.gameName, emojis: emojis)
+        isVisible = false
+    }
+    
+    func dealCards(){
+        isVisible = true
     }
     
 
