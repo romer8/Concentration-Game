@@ -25,61 +25,65 @@ class GamesViewModel{
         return [gameEmoji, gameTemple, gameShape]
     }
     
-    static func initEmojiTheme() -> [ThemeViewModel]{
+    static func initEmojiTheme() -> GameOptionViewModel {
         var emojiThemesVM: [ThemeViewModel] = []
-        var emojiGeneral = [String]()
-        var flagCountries = [String]()
-        var Miscelanius = [String]()
-        var transportMap = [String]()
-        var dingBats = [String]()
+        var emojiFaces = [String]()
+        var foodDrinks = [String]()
+        var animals = [String]()
+        var body = [String]()
+        var people = [String]()
         var randomEmotis = [String]()
         
 
-        for i in 0x1F1E6...0x1F1FF {
+        for i in 0x1F347...0x1F9C9 {
             let c = String(UnicodeScalar(i) ?? "-")
-            flagCountries.append(c)
+            foodDrinks.append(c)
         }
-        for i in 0x2600...0x26FF {
+        for i in 0x2620...0x1F600{
             let c = String(UnicodeScalar(i) ?? "-")
-            Miscelanius.append(c)
+            emojiFaces.append(c)
         }
-        for i in 0x1F680...0x1F6FF {
+        for i in 0x1F444...0x1F44B {
             let c = String(UnicodeScalar(i) ?? "-")
-            transportMap.append(c)
+            body.append(c)
         }
-        for i in 0x2700...0x27BF {
+        for i in 0x1F476...0x1F9D9 {
             let c = String(UnicodeScalar(i) ?? "-")
-            dingBats.append(c)
+            people.append(c)
         }
-        for i in 0x1F601...0x1F64F {
+        for i in 0x1F435...0x1F996 {
+            let c = String(UnicodeScalar(i) ?? "-")
+            animals.append(c)
+        }
+        for i in 0x2623...0x1F600 {
             let c = String(UnicodeScalar(i) ?? "-")
             randomEmotis.append(c)
-            emojiGeneral.append(c)
-
         }
        
-        let generalTheme = ThemeViewModel(name: "Emoji_General", color: "fffff", emojis: emojiGeneral)
-        let flagsTheme = ThemeViewModel(name: "Flags", color: "fffff", emojis: flagCountries)
-        let dingbatsTheme = ThemeViewModel(name: "DingBats", color: "fffff", emojis: dingBats)
-        let transportationTheme = ThemeViewModel(name: "Transportation", color: "fffff", emojis: randomEmotis)
-        let randomTheme = ThemeViewModel(name: "Random", color: "fffff", emojis: emojiGeneral)
+        let emojiFacesTheme = ThemeViewModel(name: "Emoji Faces", color: "fffff", emojis: emojiFaces)
+        let foodDrinksTheme = ThemeViewModel(name: "Food Drinks", color: "fffff", emojis: foodDrinks)
+        let animalsTheme = ThemeViewModel(name: "Animals", color: "fffff", emojis: animals)
+        let bodyTheme = ThemeViewModel(name: "Body", color: "fffff", emojis: body)
+        let peopleTheme = ThemeViewModel(name: "People", color: "fffff", emojis: people)
+        let randomTheme = ThemeViewModel(name: "Random", color: "fffff", emojis: randomEmotis)
         
-        emojiThemesVM.append(generalTheme)
-        emojiThemesVM.append(flagsTheme)
-        emojiThemesVM.append(dingbatsTheme)
-        emojiThemesVM.append(transportationTheme)
+        emojiThemesVM.append(emojiFacesTheme)
+        emojiThemesVM.append(foodDrinksTheme)
+        emojiThemesVM.append(animalsTheme)
+        emojiThemesVM.append(bodyTheme)
+        emojiThemesVM.append(peopleTheme)
         emojiThemesVM.append(randomTheme)
         
-        return emojiThemesVM
+        return GameOptionViewModel(themes: emojiThemesVM)
     }
     
     // MARK: - Access to Model
-    func getThemesforGames(option:Int)->[ThemeViewModel]{
+    func getThemesforGames(option:Int)-> GameOptionViewModel{
         return menuGameList[option].themesArray
     }
     
     func getGameThemes(option:Int)-> [String]{
-        let objectThemes = menuGameList[option].themesArray
+        let objectThemes = menuGameList[option].themesArray.getThemesforGames()
         var nameOfThemes: [String] = []
         for theme in objectThemes {
             nameOfThemes.append(theme.getName())
@@ -91,7 +95,7 @@ class GamesViewModel{
         var objectThemes: [ThemeViewModel] = []
         for gameFromMenu in menuGameList{
             if(gameFromMenu.concentrationGameName == gameOption ){
-                objectThemes = gameFromMenu.themesArray
+                objectThemes = gameFromMenu.themesArray.getThemesforGames()
             }
         }
         var themeEmojisArray: [String] = []

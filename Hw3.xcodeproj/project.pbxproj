@@ -26,6 +26,8 @@
 		FC39AF36251EE5BC00AD395A /* GameOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF35251EE5BC00AD395A /* GameOption.swift */; };
 		FC39AF38251FB5D100AD395A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF37251FB5D100AD395A /* Theme.swift */; };
 		FC39AF3A251FB97500AD395A /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF39251FB97500AD395A /* ThemeViewModel.swift */; };
+		FC8503CB2523E493007ABE8A /* GameOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */; };
+		FC87900325242B6900FC1710 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87900225242B6900FC1710 /* NavigationLazyView.swift */; };
 		FCFFB8A12522B3D1001BA17D /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFB8A02522B3D1001BA17D /* testView.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		FC39AF35251EE5BC00AD395A /* GameOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOption.swift; sourceTree = "<group>"; };
 		FC39AF37251FB5D100AD395A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FC39AF39251FB97500AD395A /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionViewModel.swift; sourceTree = "<group>"; };
+		FC87900225242B6900FC1710 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		FCFFB8A02522B3D1001BA17D /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +180,7 @@
 				FC39AF272512835800AD395A /* EmojiConcentrationGame.swift */,
 				FC39AF39251FB97500AD395A /* ThemeViewModel.swift */,
 				FC21DDEB2522605D00AE3F7F /* MenuGamesViewModel.swift */,
+				FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				FC39AF2F251ED0D400AD395A /* Menu.swift */,
 				FC39AF33251EE56D00AD395A /* GameOptionView.swift */,
 				FCFFB8A02522B3D1001BA17D /* testView.swift */,
+				FC87900225242B6900FC1710 /* NavigationLazyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,8 +353,10 @@
 				FC39AF222512752D00AD395A /* CardView.swift in Sources */,
 				FC39AF2A2512BCC600AD395A /* Array+Only.swift in Sources */,
 				FC39AEE7250966F200AD395A /* ConcentrationGame.swift in Sources */,
+				FC87900325242B6900FC1710 /* NavigationLazyView.swift in Sources */,
 				FC39AF3A251FB97500AD395A /* ThemeViewModel.swift in Sources */,
 				FC39AF34251EE56D00AD395A /* GameOptionView.swift in Sources */,
+				FC8503CB2523E493007ABE8A /* GameOptionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,10 @@
 import Foundation
 
 struct GameOption{
-    var themesArray: [ThemeViewModel]
+    var themesArray: GameOptionViewModel
     var concentrationGameName: String
 
-    init (game: String ,themes:[ThemeViewModel]){
+    init (game: String ,themes:GameOptionViewModel){
         themesArray = themes
         concentrationGameName = game
 

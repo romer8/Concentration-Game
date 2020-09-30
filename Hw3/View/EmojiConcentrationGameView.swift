@@ -20,6 +20,17 @@ struct EmojiConcentrationGameView: View{
 //          Color.black.edgesIgnoringSafeArea(.all)
             GeometryReader { geometry in
                 VStack {
+                    LazyVGrid(columns: columns(for:
+                        geometry.size)){
+                        ForEach(emojiGame.cards){ card in
+                            CardView(card: card)
+                                .onTapGesture{
+                                    withAnimation(.linear(duration:0.5)){
+                                        emojiGame.choose(card)
+                                    }
+                                }
+                        }
+                    }
                     HStack{
                         Button("new game"){
                             withAnimation(.easeInOut(duration:0.75)){
@@ -30,32 +41,14 @@ struct EmojiConcentrationGameView: View{
                         Spacer()
                         Text("Score: \(emojiGame.score)")                                .foregroundColor(.white)
                             .font(.system(size: 15))
-                       
                     }
                     .padding()
                     .background(Color.black)
-                    LazyVGrid(columns: columns(for:
-                        geometry.size)){
-                        ForEach(emojiGame.cards){ card in
-                            CardView(card: card)
-                                .onTapGesture{
-                                    withAnimation(.linear(duration:2)){
-                                        emojiGame.choose(card)
-                                    }
-                                }
-                        }
-                    }
 
                 }
-                .padding()
                 .foregroundColor(.blue)
-
-            
             }
-        
         }
-
-
     }
     private let desiredCardWidth: CGFloat = 100
 }
@@ -63,6 +56,6 @@ struct EmojiConcentrationGameView: View{
 struct EmojiConcentrationGameView_Previews:
     PreviewProvider{
     static var previews: some View{
-        EmojiConcentrationGameView(emojiGame:EmojiConcentrationGame(name: "EmojiMojo", themevm: ThemeViewModel(name: "EmojiGeneral", color: "FFFF", emojis: ["r","f","x","s"]), numberCards: 10))
+        EmojiConcentrationGameView(emojiGame:EmojiConcentrationGame(name: "EmojiMojo", themevm: ThemeViewModel(name: "EmojiGeneral", color: "FFFF", emojis: ["r","f","x","s"]), numberCards: 2))
     }
 }

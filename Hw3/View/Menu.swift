@@ -34,21 +34,6 @@ struct Menu: View {
                 .frame(width: 150, height: 30, alignment: .center)
                 .padding()
                 
-                
-                
-//                Picker("Number of Pairs", selection: $selectedGame){
-//                    ForEach(0 ..< gamesList.count) {
-//                        Text(self.gamesList[$0])
-//                    }
-//                }
-
-                
-    //            HStack{
-    //                OptionMenuView(nameGameTitle:"Emoji Mojo", Themes: EmojiMojoThemes)
-    //                OptionMenuView(nameGameTitle:"Temple Match", Themes: TempleThemes)
-    //            }
-    //
-    //            OptionMenuView(nameGameTitle:"Shape Match", Themes: TempleThemes)
 
             }
         }

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct GameOptionView: View {
     @State var nameGameTitle: String
-    @State var selectionThemes = 0
-    @State var ThemesVM: [ThemeViewModel]
+    @State private var selectionThemes: Int = 0
+    @State var ThemesVM: GameOptionViewModel
+    @State var isNav: Bool = false
     
     @State var selectionPairs = 0
     @State var numberPairsLimit = 10
@@ -22,8 +23,11 @@ struct GameOptionView: View {
             Text("Themes").bold()
             
             Picker("Themes",selection: $selectionThemes) {
-               ForEach(0 ..< ThemesVM.count) { themevm in
-                Text(self.ThemesVM[themevm].getName())
+                Text("Select Theme")
+                ForEach(0 ..< ThemesVM.getThemesforGames().count) { themevm in
+                    Text(self.ThemesVM.getThemesforGames()[themevm].getName())
+                    
+
                }
             }
             .labelsHidden()
@@ -40,10 +44,16 @@ struct GameOptionView: View {
             .labelsHidden()
             .frame(width: 150, height: 30, alignment: .center)
             .clipped()
-            Button("Play"){
+            NavigationLink(destination:
+                            NavigationLazyView(
+                                EmojiConcentrationGameView(emojiGame:EmojiConcentrationGame(name: nameGameTitle, themevm: ThemesVM.getGameTheme(themeName: ThemesVM.getThemesforGames()[selectionThemes].getName()), numberCards: selectionPairs))
+                            
+                            )
+                        )
+                { Text("▶️") }.padding()
+            Text("You selected: \(ThemesVM.getThemesforGames()[selectionThemes].getName())")
+            
 
-            }
-            .padding()
         }
         
     }
@@ -51,7 +61,7 @@ struct GameOptionView: View {
 
 struct OptionMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        GameOptionView(nameGameTitle: "EmojiMojo", ThemesVM: [ThemeViewModel(name: "hola", color: "fffff", emojis: ["sss","sss","sss"])])
+        GameOptionView(nameGameTitle: "EmojiMojo", ThemesVM: GameOptionViewModel(themes: [ThemeViewModel(name: "hola", color: "fffff", emojis: ["sss","sss","sss"])]))
 
     }
 }

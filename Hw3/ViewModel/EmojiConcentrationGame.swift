@@ -9,7 +9,7 @@ import Foundation
 class EmojiConcentrationGame: ObservableObject{
     var nameGame: String
     var numberOfCards: Int
-    var themeVM: ThemeViewModel
+    @Published var themeVM: ThemeViewModel
     @Published private var game: ConcentrationGame<String>
     
     
@@ -25,6 +25,8 @@ class EmojiConcentrationGame: ObservableObject{
     }
     
     init(name: String, themevm: ThemeViewModel, numberCards:Int){
+        print("this is the thing")
+        print(themevm.getEmojis())
         nameGame = name
         numberOfCards = numberCards
         themeVM = themevm
