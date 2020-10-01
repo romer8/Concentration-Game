@@ -14,7 +14,7 @@ struct GameOptionView: View {
     @State var isNav: Bool = false
     
     @State var selectionPairs = 0
-    @State var numberPairsLimit = 10
+    @State var numberPairsLimit = 100
     var body: some View {
         VStack{
             Text(nameGameTitle).bold()

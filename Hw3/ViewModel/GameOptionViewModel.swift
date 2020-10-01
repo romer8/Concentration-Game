@@ -16,14 +16,9 @@ class GameOptionViewModel{
     
     }
     func getGameTheme(themeName:String)-> ThemeViewModel{
-        print("sss")
-        print(themeName)
         var themeEmoji = ThemeViewModel(name: "Default", color: "default", emojis: ["","",""])
         for theme in themesGameOption{
-            print(theme.getName())
             if theme.getName() == themeName{
-                print("my emojis in sss")
-                print(theme.getEmojis())
                 return theme
             }
         }

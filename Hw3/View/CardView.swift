@@ -57,6 +57,7 @@ struct CardView: View{
         return Font.system(size:min(size.width,
             size.height)*fontScaleFactor)
     }
+    
     private let cardAspectRatio: CGFloat = 2/3
     private let fontScaleFactor:CGFloat = 0.70
     

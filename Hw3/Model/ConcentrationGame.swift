@@ -49,10 +49,14 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
                     cards[potentialMatchIndex].isMatched = true
                     score = score + addScore
                     numberOfPairs = numberOfPairs - 1
+                    playSound(match: true)
+
                 }
                 else{
                     cards[chosenIndex].markMismatched()
                     cards[potentialMatchIndex].markMismatched()
+                    playSound(match: false)
+
 //                    if(score > 0 ){
 //                        score = score - substractScore
 //                    }
@@ -60,6 +64,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
                 cards[chosenIndex].isFaceUp = true
             }
             else{
+                stopSound()
 
                 indexOfTheOneAndOnlyOneFaceUpCard = chosenIndex
             }

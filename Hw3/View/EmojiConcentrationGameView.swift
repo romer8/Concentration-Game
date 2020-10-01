@@ -13,8 +13,38 @@ struct EmojiConcentrationGameView: View{
     
     private func columns(for size: CGSize)->[GridItem]
     {
-        Array(repeating: GridItem(.flexible()), count: Int(size.width/desiredCardWidth))
+        return Array(repeating: GridItem(.flexible()), count: Int(size.width/scaleFactor()))
     }
+    private func scaleFactor() -> CGFloat {
+        let difference: CGFloat = 10
+        let pairs = Int(emojiGame.numberOfCards) + 1
+        print(pairs)
+//        print(emojiGame.getTotalPairs())
+        switch pairs {
+            case 1...4:
+                return desiredCardWidth
+            case 5...8:
+                return desiredCardWidth - difference * 2
+            case 9...12:
+                return desiredCardWidth - difference * 3
+
+            case 13...16:
+                return desiredCardWidth - difference * 4
+
+            case 17...20:
+                return desiredCardWidth - difference * 5
+
+            case 21...48:
+                return desiredCardWidth - difference * 6
+                
+            case 49...100:
+                return desiredCardWidth - difference * 7
+                            
+        default:
+            return desiredCardWidth - difference * 8
+        }
+    }
+    
     var body:some View {
         ScrollView{
 //          Color.black.edgesIgnoringSafeArea(.all)
@@ -43,8 +73,7 @@ struct EmojiConcentrationGameView: View{
                             }
 
                         }
-                        Spacer()
-                        Spacer()
+
 
 
                         HStack{
@@ -97,8 +126,6 @@ struct EmojiConcentrationGameView: View{
 
         randomSize.width = CGFloat(sin(randomAngle)) * scaleFactor
         randomSize.height = CGFloat(cos(randomAngle)) * scaleFactor
-        print("my random size")
-        print(randomSize)
         return randomSize
     }
 }

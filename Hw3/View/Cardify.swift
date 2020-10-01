@@ -25,12 +25,17 @@ struct Cardify: AnimatableModifier {
     func body(content: Content)-> some View {
         ZStack{
             Group{
-                RoundedRectangle(cornerRadius:cardCornerRadius).fill(Color.white)
+                RoundedRectangle(cornerRadius:cardCornerRadius)
+                    .fill(Color.white)
+
                 RoundedRectangle(cornerRadius:cardCornerRadius).stroke()
+
+
                 content
             }.opacity(isFaceUp ? 1 : 0)
             RoundedRectangle(cornerRadius: cardCornerRadius).fill(            Color(UIColor(hexString: colorHex)))
                 .opacity(isFaceUp ? 0 :1 )
+
         }
         .rotation3DEffect(
             Angle.degrees(rotation),

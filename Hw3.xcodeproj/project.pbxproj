@@ -29,6 +29,9 @@
 		FC8503CB2523E493007ABE8A /* GameOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */; };
 		FC87900325242B6900FC1710 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87900225242B6900FC1710 /* NavigationLazyView.swift */; };
 		FCDF40DF2524FCD6007A8F33 /* UIColor + Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF40DE2524FCD6007A8F33 /* UIColor + Hex.swift */; };
+		FCDF40E125258EFC007A8F33 /* soundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF40E025258EFC007A8F33 /* soundEffect.swift */; };
+		FCDF40E3252598F5007A8F33 /* applause2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCDF40E2252598F5007A8F33 /* applause2.mp3 */; };
+		FCDF40E52525A19E007A8F33 /* boo2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCDF40E42525A19E007A8F33 /* boo2.mp3 */; };
 		FCFFB8A12522B3D1001BA17D /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFB8A02522B3D1001BA17D /* testView.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,9 @@
 		FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionViewModel.swift; sourceTree = "<group>"; };
 		FC87900225242B6900FC1710 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		FCDF40DE2524FCD6007A8F33 /* UIColor + Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Hex.swift"; sourceTree = "<group>"; };
+		FCDF40E025258EFC007A8F33 /* soundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soundEffect.swift; sourceTree = "<group>"; };
+		FCDF40E2252598F5007A8F33 /* applause2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = applause2.mp3; path = "../../../Music/Music/Media.localized/Unknown Artist/Unknown Album/applause2.mp3"; sourceTree = "<group>"; };
+		FCDF40E42525A19E007A8F33 /* boo2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = boo2.mp3; path = ../../../Downloads/boo2.mp3; sourceTree = "<group>"; };
 		FCFFB8A02522B3D1001BA17D /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +135,9 @@
 		FC39AEB825094AF800AD395A /* Hw3 */ = {
 			isa = PBXGroup;
 			children = (
+				FCDF40E62525A1A6007A8F33 /* Sounds */,
+				FCDF40E42525A19E007A8F33 /* boo2.mp3 */,
+				FCDF40E2252598F5007A8F33 /* applause2.mp3 */,
 				FC39AF25251281D700AD395A /* View */,
 				FC39AF24251281CC00AD395A /* ViewModel */,
 				FC39AF23251281BB00AD395A /* Model */,
@@ -209,8 +218,16 @@
 				FC39AF1F2512712100AD395A /* Array+Index.swift */,
 				FC39AF292512BCC600AD395A /* Array+Only.swift */,
 				FCDF40DE2524FCD6007A8F33 /* UIColor + Hex.swift */,
+				FCDF40E025258EFC007A8F33 /* soundEffect.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		FCDF40E62525A1A6007A8F33 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +333,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCDF40E52525A19E007A8F33 /* boo2.mp3 in Resources */,
+				FCDF40E3252598F5007A8F33 /* applause2.mp3 in Resources */,
 				FC39AEC125094AFA00AD395A /* Preview Assets.xcassets in Resources */,
 				FC39AEBE25094AFA00AD395A /* Assets.xcassets in Resources */,
 			);
@@ -348,6 +367,7 @@
 				FC39AF2C2513B1D200AD395A /* Pie.swift in Sources */,
 				FCFFB8A12522B3D1001BA17D /* testView.swift in Sources */,
 				FC39AF2E251D0C1A00AD395A /* Cardify.swift in Sources */,
+				FCDF40E125258EFC007A8F33 /* soundEffect.swift in Sources */,
 				FC39AF38251FB5D100AD395A /* Theme.swift in Sources */,
 				FC39AF30251ED0D400AD395A /* Menu.swift in Sources */,
 				FC39AF36251EE5BC00AD395A /* GameOption.swift in Sources */,

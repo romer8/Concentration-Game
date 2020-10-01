@@ -26,8 +26,6 @@ class EmojiConcentrationGame: ObservableObject{
     }
     
     init(name: String, themevm: ThemeViewModel, numberCards:Int){
-        print("this is the thing")
-        print(themevm.getEmojis())
         nameGame = name
         numberOfCards = numberCards
         themeVM = themevm
@@ -55,7 +53,6 @@ class EmojiConcentrationGame: ObservableObject{
         for card in cards{
             if card.isMatched{
                 totalScore += 1
-                
             }
             totalScore -= card.mismatchedCount
         }
@@ -68,7 +65,12 @@ class EmojiConcentrationGame: ObservableObject{
     func getColorTheme() -> String {
         return themeVM.getColor()
     }
-
+    func getTotalCards() -> Int{
+        return numberOfCards
+    }
+    func getTotalPairs() -> Int{
+        return game.numberOfPairs
+    }
     // MARK: - Intents
     func choose(_ card:ConcentrationGame<String>.Card) {
         game.choose(card)
