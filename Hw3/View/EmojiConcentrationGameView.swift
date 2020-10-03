@@ -54,10 +54,12 @@ struct EmojiConcentrationGameView: View{
                         LazyVGrid(columns: columns(for:
                             geometry.size)){
                             ForEach(emojiGame.cards){ card in
-                                CardView(colorTheme: emojiGame.getColorTheme(), card: card )
+                                let index = emojiGame.cards.firstIndex(matching: card)
+                                CardView(cardGameType: emojiGame.nameGame, colorTheme: emojiGame.getColorTheme(), card: card, colorShapeI: UIColor(hexString: card.colorCardforShape),fillShapeI: card.fillShapeCard)
                                     .onTapGesture{
                                         withAnimation(.linear(duration:0.5)){
                                             emojiGame.choose(card)
+
                                         }
                                     }
                                     .transition(AnyTransition.offset(
@@ -74,8 +76,6 @@ struct EmojiConcentrationGameView: View{
 
                         }
 
-
-
                         HStack{
                             Button("new game"){
                                 withAnimation(.easeInOut(duration:0.75)){
@@ -84,7 +84,8 @@ struct EmojiConcentrationGameView: View{
                             }
                             Spacer()
                             Spacer()
-                            Text("Score: \(emojiGame.score)")                                .foregroundColor(.white)
+                            Text("Score: \(emojiGame.score)")
+                                .foregroundColor(.white)
                                 .font(.system(size: 15))
                         }
                         .padding()

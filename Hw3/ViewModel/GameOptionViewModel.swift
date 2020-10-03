@@ -16,14 +16,16 @@ class GameOptionViewModel{
     
     }
     func getGameTheme(themeName:String)-> ThemeViewModel{
-        var themeEmoji = ThemeViewModel(name: "Default", color: "default", emojis: ["","",""])
+        let themeEmoji = ThemeViewModel(name: "Default", color: "default", emojis: ["","",""])
         for theme in themesGameOption{
+//            print(theme.getName())
+//            print(themeName)
             if theme.getName() == themeName{
+//                print("good job")
                 return theme
             }
         }
         return themeEmoji
-//        return themeEmoji
     }
     
     func getGameThemeEmojis(themeName:String)-> [String]{
@@ -42,6 +44,10 @@ class GameOptionViewModel{
     }
     
     func getThemesforGames()->[ThemeViewModel]{
+        print(themesGameOption.count)
+        for indx in 0...themesGameOption.count - 1{
+            print(themesGameOption[indx].getName())
+        }
         return themesGameOption
     }
     

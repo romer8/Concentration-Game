@@ -24,7 +24,9 @@ struct Menu: View {
 
                 Picker(selection: $selectedGame, label: Text("Select Your Story")) {
                     ForEach(0 ..< GameMenu.getGameList().count) { gameli in
-                        NavigationLink(GameMenu.getGameList()[gameli], destination: GameOptionView(nameGameTitle: GameMenu.getGameList()[gameli], ThemesVM: GameMenu.getThemesforGames(option: gameli)),isActive: $isActive)
+                        NavigationLazyView(
+                            NavigationLink(GameMenu.getGameList()[gameli], destination: GameOptionView(nameGameTitle: GameMenu.getGameList()[gameli], ThemesVM: GameMenu.getThemesforGames(option: gameli)),isActive: $isActive)
+                        )
                     }
                 }
                 .onChange(of: selectedGame, perform: { _ in

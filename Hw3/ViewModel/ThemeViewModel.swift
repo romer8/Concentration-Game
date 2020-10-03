@@ -25,6 +25,22 @@ class ThemeViewModel: ObservableObject {
     func getEmojis()->[String]{
         return themeGame.contentArray
     }
+    func getColorsShapes(_cards: Int)->[String]{
+        var tempArray: [String] = []
+        var sortArray: [String] = themeGame.contentColorShapeArray.sorted()
+        return Array(sortArray[0..<_cards])
+//        for indx in 0..._cards-1 {
+//            tempArray.append(themeGame.contentColorShapeArray[indx])
+//        }
+//        return tempArray
+//        return themeGame.contentColorShapeArray
+    }
+    func getCS() -> [String]{
+        return themeGame.contentColorShapeArray
+    }
+    func getFillShapes()->[Bool]{
+        return themeGame.contentFillShapeArray
+    }
     func getName()-> String{
         return themeGame.nameTheme
     }

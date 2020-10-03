@@ -12,6 +12,9 @@ class EmojiConcentrationGame: ObservableObject{
     @Published var themeVM: ThemeViewModel
     @Published private var game: ConcentrationGame<String>
     @Published private var isVisible = false
+    var colorsArraysI:[String] = []
+    var styleShapesArrayI:[Bool]=[]
+
     
     
 //    @Published private var game = createGame()
@@ -21,8 +24,8 @@ class EmojiConcentrationGame: ObservableObject{
 //    static func createGame()-> ConcentrationGame<String> {
 //        ConcentrationGame<String>(numberOfPairsOfCards: emojis.count){index in emojis[index]}
 //    }
-    static func createGame(name: String, emojis: [String])-> ConcentrationGame<String> {
-        ConcentrationGame<String>(name: name, numberOfPairsOfCards: emojis.count){index in emojis[index]}
+    static func createGame(name: String, emojis: [String], colorsShapes:[String], fillOrNot:[Bool])-> ConcentrationGame<String> {
+        ConcentrationGame<String>(name: name, numberOfPairsOfCards: emojis.count, colorShapes: colorsShapes, fillStyle: fillOrNot){index in emojis[index]}
     }
     
     init(name: String, themevm: ThemeViewModel, numberCards:Int){
@@ -32,9 +35,17 @@ class EmojiConcentrationGame: ObservableObject{
         var emojis: [String] = []
         for index in 0...numberOfCards{
             emojis.append(themevm.getEmojis()[index])
+            colorsArraysI.append(themevm.getCS()[index])
+            if(index <= numberOfCards/2){
+                styleShapesArrayI.append(true)
+            }
+            else{
+                styleShapesArrayI.append(false)
+            }
         }
 
-        game = EmojiConcentrationGame.createGame(name: name, emojis: emojis)
+        styleShapesArrayI = styleShapesArrayI.shuffled()
+        game = EmojiConcentrationGame.createGame(name: name, emojis: emojis, colorsShapes: colorsArraysI, fillOrNot: styleShapesArrayI)
     }
     // MARK: - Access to Model
     var cards: Array<ConcentrationGame<String>.Card> {
@@ -69,7 +80,7 @@ class EmojiConcentrationGame: ObservableObject{
         return numberOfCards
     }
     func getTotalPairs() -> Int{
-        return game.numberOfPairs
+        return numberOfCards
     }
     // MARK: - Intents
     func choose(_ card:ConcentrationGame<String>.Card) {
@@ -77,10 +88,19 @@ class EmojiConcentrationGame: ObservableObject{
     }
     func startNewGame(){
         var emojis: [String] = []
+        var colorsTemp: [String] = []
+        var fillTemp:[Bool] = []
         for index in 0...numberOfCards{
             emojis.append(themeVM.getEmojis()[index])
+            colorsTemp.append(themeVM.getCS()[index])
+            if(index <= numberOfCards/2){
+                fillTemp.append(true)
+            }
+            else{
+                fillTemp.append(false)
+            }
         }
-        game = EmojiConcentrationGame.createGame(name: game.gameName, emojis: emojis)
+        game = EmojiConcentrationGame.createGame(name: game.gameName, emojis: emojis, colorsShapes: colorsTemp,fillOrNot: fillTemp)
         isVisible = false
     }
     

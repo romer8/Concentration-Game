@@ -23,7 +23,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
         }
     }
     
-    init (name: String,numberOfPairsOfCards:Int, cardContentFactory: (Int) -> CardContent){
+    init (name: String,numberOfPairsOfCards:Int, colorShapes:[String], fillStyle:[Bool], cardContentFactory: (Int) -> CardContent){
         cards = Array<Card>()
         score = 0
         gameName = name
@@ -31,8 +31,8 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
         for pairIndex in 0..<numberOfPairsOfCards{
             let content = cardContentFactory(pairIndex)
             
-            cards.append(Card(content:content))
-            cards.append(Card(content:content))
+            cards.append(Card(content:content, colorCardforShape: colorShapes[pairIndex], fillShapeCard: fillStyle[pairIndex]))
+            cards.append(Card(content:content, colorCardforShape: colorShapes[pairIndex], fillShapeCard: fillStyle[pairIndex]))
         }
         
         cards.shuffle()
@@ -74,6 +74,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
     struct Card: Identifiable{
         private let matchScore = 5
         private let maxMatchBonus = 5.0
+        
         fileprivate(set) var isFaceUp = false{
             didSet{
                 if isFaceUp{
@@ -91,6 +92,8 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
         fileprivate(set) var mismatchedCount = 0
         fileprivate(set) var viewCount = 0
         fileprivate(set) var content: CardContent
+        var colorCardforShape: String = "fffff"
+        var fillShapeCard: Bool = true
         var id = UUID()
         
         var score: Int{
@@ -142,6 +145,7 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
             pastFaceUpTime = faceUpTime
             lastFaceUpTime = nil
         }
+
         
 
     }
