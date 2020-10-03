@@ -24,13 +24,37 @@ class GamesViewModel{
         let gameTemple = GameOption(game: nameGames[1],themes: templeMatchThemes)
         let gameShape = GameOption(game: nameGames[2],themes: shapesMatchThemes)
 
-        return [gameTemple,gameShape,gameEmoji]
+        return [gameShape,gameTemple,gameEmoji]
     }
     static func initTemplesThemes() -> GameOptionViewModel{
         var emojiThemesVM: [ThemeViewModel] = []
-        let utahTemples: [String] = ["1u","2u","3u","4u","5u"]
-        let utahTemplesTheme = ThemeViewModel(name: "Utah Temples", color: "ffff00", emojis: utahTemples)
+        let utahTemples: [String] = ["u1","u2","u3","u4","u5","u6","u7","u8","u9","u10","u11","u10","u11","u12","u13","u14"]
+        
+        let southAmericaTemples: [String] = ["sa1","sa2","sa3","sa4","sa5","sa6","sa7","sa8","sa9","sa10","sa11","sa10","sa11","sa12","sa13","sa14","sa15","sa16","sa17","sa18","sa19","sa20","sa21"]
+        
+        let centralAmericaTemples: [String] = ["ca1","ca2","ca3","ca4","ca5","ca6","ca7","ca8","ca9","ca10","ca11","ca10","ca11","ca12","ca13"]
+        
+        let northAmericaTemples: [String] = ["na1","na2","na3","na4","na5","na6","na7","na8","na9","na10","na11","na10","na11","na12","na13","na14"]
+        
+        let oceaniaTemples: [String] = ["o1","o2","o3","o4","o5","o6","o7","o8","o9"]
+        
+        let europeTemples: [String] = ["e1","e2","e3","e4","e5","e6","e7","e8","e9","e10","e11"]
+
+        
+        let utahTemplesTheme = ThemeViewModel(name: "Utah Temples", color: randomHexColorCode(), emojis: utahTemples)
+        let southAmericaTemplesTheme = ThemeViewModel(name: "South America Temples", color: randomHexColorCode(), emojis: southAmericaTemples)
+        let centralAmericaTemplesTheme = ThemeViewModel(name: "Central America Temples", color: randomHexColorCode(), emojis: centralAmericaTemples)
+        let northAmericaTemplesTheme = ThemeViewModel(name: "North America Temples", color: randomHexColorCode(), emojis: northAmericaTemples)
+        let europeTemplesTheme = ThemeViewModel(name: "Europe Temples", color: randomHexColorCode(), emojis: europeTemples)
+        let oceaniaTemplesTheme = ThemeViewModel(name: "Oceania Temples", color: randomHexColorCode(), emojis: oceaniaTemples)
+
         emojiThemesVM.append(utahTemplesTheme)
+        emojiThemesVM.append(southAmericaTemplesTheme)
+        emojiThemesVM.append(centralAmericaTemplesTheme)
+        emojiThemesVM.append(northAmericaTemplesTheme)
+        emojiThemesVM.append(europeTemplesTheme)
+        emojiThemesVM.append(oceaniaTemplesTheme)
+        
         return GameOptionViewModel(themes: emojiThemesVM)
     }
     
