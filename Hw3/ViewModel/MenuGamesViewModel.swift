@@ -63,7 +63,7 @@ class GamesViewModel{
         
         let shapesOneTheme = ThemeViewModel(name: "Triangles", color: "ffff00", emojis: shapesArrayOne)
         let shapesTwoTheme = ThemeViewModel(name: "Circle", color: "69960e", emojis: shapesArrayTwo)
-        let shapesThreeTheme = ThemeViewModel(name: "Crazy", color: "ffa500", emojis: shapesArrayThree)
+        let shapesThreeTheme = ThemeViewModel(name: "Stars", color: "ffa500", emojis: shapesArrayThree)
         let shapesFourTheme = ThemeViewModel(name: "Square", color: "87ceeb", emojis: shapesArrayFour)
 
         emojiThemesVM.append(shapesOneTheme)

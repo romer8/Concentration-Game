@@ -32,10 +32,10 @@ struct ShapeView: View {
                 }
             case 201...300:
                 if(fillShapeI){
-                    SpiroSquare().fill(Color(colorShapeI)).scaledToFit()
+                    SpiroSquare(corners: 5, smoothness: 0.45).fill(Color(colorShapeI)).scaledToFit()
                 }
                 else{
-                    SpiroSquare().stroke(Color(colorShapeI), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).scaledToFit()
+                    SpiroSquare(corners: 5, smoothness: 0.45).stroke(Color(colorShapeI), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).scaledToFit()
                 }
             default:
                 if(fillShapeI){
@@ -50,7 +50,7 @@ struct ShapeView: View {
 
 struct ShapeView_Previews: PreviewProvider {
     static var previews: some View {
-        ShapeView(shapeRange: 2500, colorShapeI: .red, fillShapeI: false, strokeShapeI: false, safeGuard: 2500)
+        ShapeView(shapeRange: 250, colorShapeI: .red, fillShapeI: false, strokeShapeI: false, safeGuard: 2500)
 
     }
 }
