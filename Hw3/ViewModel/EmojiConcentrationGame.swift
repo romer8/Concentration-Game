@@ -14,7 +14,14 @@ class EmojiConcentrationGame: ObservableObject{
     @Published private var isVisible = false
     var colorsArraysI:[String] = []
     var styleShapesArrayI:[Bool]=[]
-
+    var actSound: Bool = true{
+        didSet{
+            game.activateSound = actSound
+        }
+        willSet{
+            game.activateSound = newValue
+        }
+    }
     
     
 //    @Published private var game = createGame()
@@ -107,6 +114,11 @@ class EmojiConcentrationGame: ObservableObject{
     func dealCards(){
         isVisible = true
     }
+    
+    func activateDeactivateSound(isSoundActive: Bool){
+        game.deactivateActivateSound(isActive: isSoundActive)
+    }
+
     
 
 }

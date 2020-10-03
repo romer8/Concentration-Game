@@ -10,7 +10,14 @@ import SwiftUI
 struct EmojiConcentrationGameView: View{
     
     @ObservedObject var emojiGame: EmojiConcentrationGame
-    
+    @State private var playSound = true {
+        willSet{
+            print(newValue)
+            emojiGame.activateDeactivateSound(isSoundActive: newValue)
+        }
+
+    }
+
     private func columns(for size: CGSize)->[GridItem]
     {
         return Array(repeating: GridItem(.flexible()), count: Int(size.width/scaleFactor()))
@@ -47,7 +54,12 @@ struct EmojiConcentrationGameView: View{
     
     var body:some View {
         ScrollView{
-//          Color.black.edgesIgnoringSafeArea(.all)
+            VStack {
+
+                Toggle(isOn: self.$emojiGame.actSound) {
+                }.toggleStyle(SoundToggleStyle())
+
+            }
             GeometryReader { geometry in
                 VStack {
                     if(emojiGame.getRemainingPairs() > 0){

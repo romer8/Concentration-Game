@@ -14,6 +14,12 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
     var score: Int = 0
     let addScore: Int = 2
     let substractScore:Int = 1
+    var activateSound: Bool = true{
+        didSet{
+            print("disabled/enabled")
+        }
+        
+    }
     var indexOfTheOneAndOnlyOneFaceUpCard: Int?{
         get{cards.indices.filter { cards[$0].isFaceUp}.only}
         set{
@@ -37,6 +43,11 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
         
         cards.shuffle()
     }
+    mutating func deactivateActivateSound(isActive: Bool){
+        activateSound = isActive
+    }
+
+    
     mutating func choose(_ card: Card){
         if let chosenIndex = cards.firstIndex(matching:card),
                 !cards[chosenIndex].isFaceUp,!cards[chosenIndex].isMatched{
@@ -49,13 +60,13 @@ struct ConcentrationGame<CardContent> where CardContent: Equatable{
                     cards[potentialMatchIndex].isMatched = true
                     score = score + addScore
                     numberOfPairs = numberOfPairs - 1
-                    playSound(match: true)
-
+                    if(activateSound){playSound(match: true)}
                 }
                 else{
                     cards[chosenIndex].markMismatched()
                     cards[potentialMatchIndex].markMismatched()
-                    playSound(match: false)
+
+                    if(activateSound){playSound(match: false)}
 
 //                    if(score > 0 ){
 //                        score = score - substractScore
