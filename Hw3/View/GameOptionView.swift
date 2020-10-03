@@ -37,10 +37,10 @@ struct GameOptionView: View {
             Text("Pairs").bold()
 
             Picker("Number of Pairs", selection: $selectionPairs){
-                ForEach(1 ..< numberPairsLimit + 1) {
+                ForEach(1 ..< (ThemesVM.getThemesforGames()[selectionThemes].getEmojis().count + 1 < numberPairsLimit ? ThemesVM.getThemesforGames()[selectionThemes].getEmojis().count + 1: numberPairsLimit + 1 )) {
                     Text("\($0) pairs")
                 }
-            }
+            }.id(selectionThemes)
             .labelsHidden()
             .frame(width: 150, height: 30, alignment: .center)
             .clipped()
