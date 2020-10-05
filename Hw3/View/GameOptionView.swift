@@ -53,6 +53,13 @@ struct GameOptionView: View {
                 { Text("▶️") }.padding()
             Text("You selected: \(ThemesVM.getThemesforGames()[selectionThemes].getName())")
             Text("You selected: \(selectionPairs + 1) \(" pairs")")
+            
+            NavigationLink(destination: NavigationLazyView(
+                ScoresView(themesNames: ThemesVM.getGameThemes(), gameTitle: nameGameTitle)) )
+            {HStack(spacing: 10) {
+                Image(systemName: "square.and.pencil")
+                Text("Scores")
+            } }.padding()
 
         }
         
