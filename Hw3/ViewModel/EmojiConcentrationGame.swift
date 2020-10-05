@@ -12,6 +12,7 @@ class EmojiConcentrationGame: ObservableObject{
     @Published var themeVM: ThemeViewModel
     @Published private var game: ConcentrationGame<String>
     @Published private var isVisible = false
+
     var colorsArraysI:[String] = []
     var styleShapesArrayI:[Bool]=[]
     var actSound: Bool = true{
@@ -53,6 +54,13 @@ class EmojiConcentrationGame: ObservableObject{
 
         styleShapesArrayI = styleShapesArrayI.shuffled()
         game = EmojiConcentrationGame.createGame(name: name, emojis: emojis, colorsShapes: colorsArraysI, fillOrNot: styleShapesArrayI)
+//        if(score != 0 ){
+//            defaults.set(score, forKey: themevm.getName())
+//        }
+//        else{
+//            defaults.set(score, forKey: themevm.getName())
+//
+//        }
     }
     // MARK: - Access to Model
     var cards: Array<ConcentrationGame<String>.Card> {
@@ -73,6 +81,17 @@ class EmojiConcentrationGame: ObservableObject{
                 totalScore += 1
             }
             totalScore -= card.mismatchedCount
+        }
+        if(game.numberOfPairs < 1){
+            let temp = String(totalScore)
+            let lastScore = UserDefaults.standard.object(forKey: themeVM.getName()) as? String ?? ""
+            var IntLastScore: Int = 0
+            if(lastScore != "Never Played"){
+                IntLastScore = Int(lastScore) ?? 0
+            }
+            if IntLastScore < totalScore {
+                UserDefaults.standard.set(temp, forKey: themeVM.getName())
+            }
         }
         
         return totalScore
