@@ -27,6 +27,7 @@
 		FC39AF38251FB5D100AD395A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF37251FB5D100AD395A /* Theme.swift */; };
 		FC39AF3A251FB97500AD395A /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC39AF39251FB97500AD395A /* ThemeViewModel.swift */; };
 		FC41F97525290ABD002A726B /* toggleCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC41F97425290ABD002A726B /* toggleCustom.swift */; };
+		FC41F977252B8B28002A726B /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC41F976252B8B28002A726B /* ScoresView.swift */; };
 		FC8503CB2523E493007ABE8A /* GameOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */; };
 		FC87900325242B6900FC1710 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87900225242B6900FC1710 /* NavigationLazyView.swift */; };
 		FCD4C9482526484000227ACC /* shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD4C9472526484000227ACC /* shapes.swift */; };
@@ -84,6 +85,7 @@
 		FC39AF37251FB5D100AD395A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FC39AF39251FB97500AD395A /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
 		FC41F97425290ABD002A726B /* toggleCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toggleCustom.swift; sourceTree = "<group>"; };
+		FC41F976252B8B28002A726B /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		FC8503CA2523E493007ABE8A /* GameOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionViewModel.swift; sourceTree = "<group>"; };
 		FC87900225242B6900FC1710 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		FCD4C9472526484000227ACC /* shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shapes.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				FC87900225242B6900FC1710 /* NavigationLazyView.swift */,
 				FCDF40E7252639C2007A8F33 /* imageTempleView.swift */,
 				FCD4C94B252684C600227ACC /* ShapeView.swift */,
+				FC41F976252B8B28002A726B /* ScoresView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				FC39AEE52509602B00AD395A /* EmojiConcentrationGameView.swift in Sources */,
 				FC39AF222512752D00AD395A /* CardView.swift in Sources */,
 				FC39AF2A2512BCC600AD395A /* Array+Only.swift in Sources */,
+				FC41F977252B8B28002A726B /* ScoresView.swift in Sources */,
 				FC39AEE7250966F200AD395A /* ConcentrationGame.swift in Sources */,
 				FC87900325242B6900FC1710 /* NavigationLazyView.swift in Sources */,
 				FC39AF3A251FB97500AD395A /* ThemeViewModel.swift in Sources */,
