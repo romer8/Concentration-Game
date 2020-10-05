@@ -42,12 +42,30 @@ class GamesViewModel{
 
         
         let utahTemplesTheme = ThemeViewModel(name: "Utah Temples", color: randomHexColorCode(), emojis: utahTemples)
-        let southAmericaTemplesTheme = ThemeViewModel(name: "South America Temples", color: randomHexColorCode(), emojis: southAmericaTemples)
-        let centralAmericaTemplesTheme = ThemeViewModel(name: "Central America Temples", color: randomHexColorCode(), emojis: centralAmericaTemples)
-        let northAmericaTemplesTheme = ThemeViewModel(name: "North America Temples", color: randomHexColorCode(), emojis: northAmericaTemples)
-        let europeTemplesTheme = ThemeViewModel(name: "Europe Temples", color: randomHexColorCode(), emojis: europeTemples)
-        let oceaniaTemplesTheme = ThemeViewModel(name: "Oceania Temples", color: randomHexColorCode(), emojis: oceaniaTemples)
+        UserDefaults.standard.set ("Never Played", forKey: "Utah Temples")
 
+        let southAmericaTemplesTheme = ThemeViewModel(name: "South America Temples", color: randomHexColorCode(), emojis: southAmericaTemples)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "South America Temples")
+
+        let centralAmericaTemplesTheme = ThemeViewModel(name: "Central America Temples", color: randomHexColorCode(), emojis: centralAmericaTemples)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Central America Temples")
+
+        let northAmericaTemplesTheme = ThemeViewModel(name: "North America Temples", color: randomHexColorCode(), emojis: northAmericaTemples)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "North America Temples")
+
+        
+        let europeTemplesTheme = ThemeViewModel(name: "Europe Temples", color: randomHexColorCode(), emojis: europeTemples)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Europe Temples")
+
+        let oceaniaTemplesTheme = ThemeViewModel(name: "Oceania Temples", color: randomHexColorCode(), emojis: oceaniaTemples)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Oceania Temples")
+
+        
         emojiThemesVM.append(utahTemplesTheme)
         emojiThemesVM.append(southAmericaTemplesTheme)
         emojiThemesVM.append(centralAmericaTemplesTheme)
@@ -86,9 +104,20 @@ class GamesViewModel{
         }
         
         let shapesOneTheme = ThemeViewModel(name: "Triangles", color: "ffff00", emojis: shapesArrayOne)
+        UserDefaults.standard.set ("Never Played", forKey: "Triangles")
+
+        
         let shapesTwoTheme = ThemeViewModel(name: "Circle", color: "69960e", emojis: shapesArrayTwo)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Circle")
+
         let shapesThreeTheme = ThemeViewModel(name: "Stars", color: "ffa500", emojis: shapesArrayThree)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Stars")
+
         let shapesFourTheme = ThemeViewModel(name: "Square", color: "87ceeb", emojis: shapesArrayFour)
+        UserDefaults.standard.set ("Never Played", forKey: "Square")
+
 
         emojiThemesVM.append(shapesOneTheme)
         emojiThemesVM.append(shapesTwoTheme)
@@ -134,11 +163,29 @@ class GamesViewModel{
         }
        
         let emojiFacesTheme = ThemeViewModel(name: "Emoji Faces", color: "ffff00", emojis: emojiFaces)
+        UserDefaults.standard.set ("Never Played", forKey: "Emoji Faces")
+
+        
         let foodDrinksTheme = ThemeViewModel(name: "Food Drinks", color: "69960e", emojis: foodDrinks)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Food Drinks")
+
         let animalsTheme = ThemeViewModel(name: "Animals", color: "ffa500", emojis: animals)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Animals")
+
         let bodyTheme = ThemeViewModel(name: "Body", color: "87ceeb", emojis: body)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Body")
+
         let peopleTheme = ThemeViewModel(name: "People", color: "ffc0cb ", emojis: people)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "People")
+
         let randomTheme = ThemeViewModel(name: "Random", color: randomHexColorCode(), emojis: randomEmotis)
+        
+        UserDefaults.standard.set ("Never Played", forKey: "Random")
+
         
         emojiThemesVM.append(emojiFacesTheme)
         emojiThemesVM.append(foodDrinksTheme)
