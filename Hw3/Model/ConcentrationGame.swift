@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 struct ConcentrationGame<CardContent> where CardContent: Equatable{
     private(set) var cards: Array<Card>
     var numberOfPairs: Int = 0
