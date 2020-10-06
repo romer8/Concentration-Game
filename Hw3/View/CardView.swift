@@ -47,7 +47,15 @@ struct CardView: View{
                             
                         }
                         else{
-                            Pie(startAngle: angle(for: 0), endAngle: angle(for: -card.bonusRemaining),clockwise: true)
+                            if cardGameType == "EmojiMojo" {
+                                Pie(startAngle: angle(for: 0), endAngle: angle(for: -card.bonusRemaining),clockwise: true)
+
+                            }
+                            else if cardGameType == "Temple Match"{
+                                HorizontalProgressBar(startAngle: angle2(for: 0),
+                                                      endAngle: angle2(for: animatedBonusRemaining)
+                                                      ,clockwise: false)
+                            }
                         }
                         
                     }
