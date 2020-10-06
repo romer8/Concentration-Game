@@ -81,6 +81,8 @@ struct CardView: View{
                     }
                     else if(cardGameType == "Shape Match"){
                         ShapeView(shapeRange: CardView.ci(s:card.content), colorShapeI: colorShapeI, fillShapeI: fillShapeI, strokeShapeI: strokeShapeI,safeGuard: 1)
+                            .offset(x: card.isMatched ? -1.5 : 0, y: card.isMatched ? 1: 0).animation(card.isMatched ? Animation.linear(duration: 0.1).repeatForever(autoreverses: false): .default)
+
                        
                     }
 

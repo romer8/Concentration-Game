@@ -24,7 +24,7 @@ class GamesViewModel{
         let gameTemple = GameOption(game: nameGames[1],themes: templeMatchThemes)
         let gameShape = GameOption(game: nameGames[2],themes: shapesMatchThemes)
 
-        return [gameShape,gameTemple,gameEmoji]
+        return [gameTemple,gameShape,gameEmoji]
     }
     static func initTemplesThemes() -> GameOptionViewModel{
         var emojiThemesVM: [ThemeViewModel] = []
