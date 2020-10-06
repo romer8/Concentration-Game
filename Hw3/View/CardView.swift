@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView: View{
-    var cardGameType: String = "EmojiMojo"
+    var cardGameType: String = "Temple Match"
     var colorTheme: String = "FFFFFF"
     var card: ConcentrationGame<String>.Card
     @State private var animatedBonusRemaining = 0.0
@@ -28,12 +28,23 @@ struct CardView: View{
                 ZStack{
                     Group{
                         if card.isConsumingBonusTime{
-                            Pie(startAngle: angle(for: 0),
-                                endAngle: angle(for: -animatedBonusRemaining),
-                                clockwise: true)
-                                .onAppear(){
-                                    startBonusTimeAnimation()
-                                }
+                            if cardGameType == "EmojiMojo"{
+                                Pie(startAngle: angle(for: 0),
+                                    endAngle: angle(for: -animatedBonusRemaining),
+                                    clockwise: true)
+                                    .onAppear(){
+                                        startBonusTimeAnimation()
+                                    }
+                            }
+                            else if cardGameType == "Temple Match"{
+                                HorizontalProgressBar(startAngle: angle2(for: 0),
+                                                      endAngle: angle2(for: animatedBonusRemaining)
+                                                      ,clockwise: false).onAppear(){
+                                                        startBonusTimeAnimation()
+                                                    }
+                            }
+                            
+                            
                         }
                         else{
                             Pie(startAngle: angle(for: 0), endAngle: angle(for: -card.bonusRemaining),clockwise: true)
@@ -80,6 +91,11 @@ struct CardView: View{
             animatedBonusRemaining = 0
         }
     }
+    private func angle2(for degrees: Double) -> Angle{
+        Angle.degrees(180 - degrees * 180)
+    }
+
+    
     private func systemFont(for size: CGSize) -> Font {
         return Font.system(size:min(size.width,
             size.height)*fontScaleFactor)

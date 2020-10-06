@@ -33,7 +33,7 @@ struct Cardify: AnimatableModifier {
 
                 content
             }.opacity(isFaceUp ? 1 : 0)
-            RoundedRectangle(cornerRadius: cardCornerRadius).fill(            Color(UIColor(hexString: colorHex)))
+            RoundedRectangle(cornerRadius: cardCornerRadius).fill(Color(UIColor(hexString: colorHex)))
                 .opacity(isFaceUp ? 0 :1 )
 
         }
