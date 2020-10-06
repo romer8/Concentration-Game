@@ -17,6 +17,8 @@ struct CardView: View{
     var fillShapeI: Bool = true
     
     var strokeShapeI: Bool = false
+    @State var attempts: Int = 0
+
     
      static func ci (s: String) ->Int{
         return Int(s) ?? 0
@@ -72,15 +74,14 @@ struct CardView: View{
  
                     else if (cardGameType == "Temple Match") {
                         imageTempleView(fileNameString: card.content)
+                            .opacity(card.isMatched ? 0 : 1)
+                            .animation(card.isMatched ? Animation.linear(duration: 0.1).repeatForever(autoreverses: false): .default)
+
+
                     }
                     else if(cardGameType == "Shape Match"){
                         ShapeView(shapeRange: CardView.ci(s:card.content), colorShapeI: colorShapeI, fillShapeI: fillShapeI, strokeShapeI: strokeShapeI,safeGuard: 1)
                        
-//
-//                        Text(card.content)
-//                            .font(systemFont(for:geometry.size))
-//                            .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
-//                            .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false): .default)
                     }
 
                 }
