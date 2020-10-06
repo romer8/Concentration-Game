@@ -20,7 +20,7 @@ struct ShapeView: View {
                     Triangle().fill(Color(colorShapeI)).scaledToFit()
                 }
                 else{
-                    Triangle().stroke(Color(colorShapeI), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).scaledToFit()
+                    Triangle().stroke(Color(colorShapeI)).scaledToFit()
                 }
             case 101...200:
 
@@ -28,21 +28,21 @@ struct ShapeView: View {
                     Circle(startAngle: .degrees(0), endAngle: .degrees(360), clockwise: false).fill(Color(colorShapeI)).scaledToFit()
                 }
                 else{
-                    Circle(startAngle: .degrees(0), endAngle: .degrees(360), clockwise: false).stroke(Color(colorShapeI), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).scaledToFit()
+                    Circle(startAngle: .degrees(0), endAngle: .degrees(360), clockwise: false).stroke(Color(colorShapeI)).scaledToFit()
                 }
             case 201...300:
                 if(fillShapeI){
-                    SpiroSquare(corners: 5, smoothness: 0.45).fill(Color(colorShapeI)).scaledToFit()
+                    SpiroSquare(corners: 6, smoothness: 0.45).fill(Color(colorShapeI)).scaledToFit()
                 }
                 else{
-                    SpiroSquare(corners: 5, smoothness: 0.45).stroke(Color(colorShapeI), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).scaledToFit()
+                    SpiroSquare(corners: 6, smoothness: 0.45).stroke(Color(colorShapeI)).scaledToFit()
                 }
             default:
                 if(fillShapeI){
                     Square().fill(Color(colorShapeI)).scaledToFit()
                 }
                 else{
-                    Square().stroke(Color(colorShapeI), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round)).scaledToFit()                }
+                    Square().stroke(Color(colorShapeI)).scaledToFit()                }
         }
         
     }
