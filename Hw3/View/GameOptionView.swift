@@ -49,7 +49,8 @@ struct GameOptionView: View {
                             NavigationLazyView(
                                 EmojiConcentrationGameView(emojiGame:EmojiConcentrationGame(name: nameGameTitle, themevm: ThemesVM.getGameTheme(themeName: ThemesVM.getThemesforGames()[selectionThemes].getName()), numberCards: selectionPairs))
                             
-                            )
+                            ).navigationBarTitle("", displayMode: .inline)
+
                         )
                 { Text("▶️") }.padding()
             
