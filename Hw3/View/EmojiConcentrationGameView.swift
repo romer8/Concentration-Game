@@ -54,7 +54,9 @@ struct EmojiConcentrationGameView: View{
     
     var body:some View {
             GeometryReader { geometry in
+            
                 VStack{
+                    
                     HStack{
                         VStack{
                             Toggle(isOn: self.$emojiGame.actSound) {
@@ -63,16 +65,12 @@ struct EmojiConcentrationGameView: View{
                         Button(action: {
                             print("Button was tapped")
                             withAnimation(.easeInOut(duration:0.75)){
-    //                                emojiGame.startNewGame()
+                                    emojiGame.startNewGame()
                             }
                         }) {
                             Image(systemName: "goforward")
                         }
-    //                            Button("new Game"){
-    //                                withAnimation(.easeInOut(duration:0.75)){
-    //    //                                emojiGame.startNewGame()
-    //                                }
-    //                            }
+
                         Spacer()
                         Spacer()
                         Text("Score: \(emojiGame.score)")
@@ -80,6 +78,10 @@ struct EmojiConcentrationGameView: View{
 
                     }
                     .padding()
+                    Text(emojiGame.themeVM.getName())
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .bold()
+                        .foregroundColor(Color(UIColor(hexString: emojiGame.getColorTheme())))
                     ScrollView{
 
                     VStack {

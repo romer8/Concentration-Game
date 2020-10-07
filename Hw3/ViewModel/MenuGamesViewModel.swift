@@ -103,7 +103,7 @@ class GamesViewModel{
             shapesArrayFour.append(shapeX)
         }
         
-        let shapesOneTheme = ThemeViewModel(name: "Triangles", color: "ffff00", emojis: shapesArrayOne)
+        let shapesOneTheme = ThemeViewModel(name: "Triangles", color: "FF00FF", emojis: shapesArrayOne)
         UserDefaults.standard.set ("Never Played", forKey: "Triangles")
 
         
@@ -162,7 +162,7 @@ class GamesViewModel{
             randomEmotis.append(c)
         }
        
-        let emojiFacesTheme = ThemeViewModel(name: "Emoji Faces", color: "ffff00", emojis: emojiFaces)
+        let emojiFacesTheme = ThemeViewModel(name: "Emoji Faces", color: "FF00FF", emojis: emojiFaces)
         UserDefaults.standard.set ("Never Played", forKey: "Emoji Faces")
 
         
