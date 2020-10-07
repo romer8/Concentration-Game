@@ -53,82 +53,95 @@ struct EmojiConcentrationGameView: View{
     }
     
     var body:some View {
-        ScrollView{
-            VStack {
-
-                Toggle(isOn: self.$emojiGame.actSound) {
-                }.toggleStyle(SoundToggleStyle())
-
-            }
             GeometryReader { geometry in
-                VStack {
-                    if(emojiGame.getRemainingPairs() > 0){
-                        LazyVGrid(columns: columns(for:
-                            geometry.size)){
-                            ForEach(emojiGame.cards){ card in
-                                let index = emojiGame.cards.firstIndex(matching: card)
-                                CardView(cardGameType: emojiGame.nameGame, colorTheme: emojiGame.getColorTheme(), card: card, colorShapeI: UIColor(hexString: card.colorCardforShape),fillShapeI: card.fillShapeCard)
-                                    .onTapGesture{
-                                        withAnimation(.linear(duration:0.5)){
-                                            emojiGame.choose(card)
-
-                                        }
-                                    }
-                                    .transition(AnyTransition.offset(
-                                        randomLocationOffScreen(for: geometry.size)
-                                    ))
-                            }
+                VStack{
+                    HStack{
+                        VStack{
+                            Toggle(isOn: self.$emojiGame.actSound) {
+                            }.toggleStyle(SoundToggleStyle())
                         }
-                        .onAppear {
-                            DispatchQueue.main.async {
-                                withAnimation(Animation.easeInOut) {
-                                     emojiGame.dealCards()
-                                }
-                            }
-
-                        }
-
-                        HStack{
-                            Button("new game"){
-                                withAnimation(.easeInOut(duration:0.75)){
+                        Button(action: {
+                            print("Button was tapped")
+                            withAnimation(.easeInOut(duration:0.75)){
     //                                emojiGame.startNewGame()
-                                }
                             }
-                            Spacer()
-                            Spacer()
-                            Text("Score: \(emojiGame.score)")
-                                .foregroundColor(.white)
-                                .font(.system(size: 15))
+                        }) {
+                            Image(systemName: "goforward")
                         }
-                        .padding()
-                        .background(Color.black)
+    //                            Button("new Game"){
+    //                                withAnimation(.easeInOut(duration:0.75)){
+    //    //                                emojiGame.startNewGame()
+    //                                }
+    //                            }
+                        Spacer()
+                        Spacer()
+                        Text("Score: \(emojiGame.score)")
+                            .font(.system(size: 15))
+
                     }
-                    else{
-                    Text("You have completed the Game")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 30))
-                        .padding()
-                        .animation(.easeInOut(duration: 5))
-//                        HStack{
-                            Button("new game"){
-                                withAnimation(.easeInOut(duration:0.75)){
-                                    emojiGame.startNewGame()
+                    .padding()
+                    ScrollView{
+
+                    VStack {
+                        if(emojiGame.getRemainingPairs() > 0){
+                            LazyVGrid(columns: columns(for:
+                                geometry.size)){
+                                ForEach(emojiGame.cards){ card in
+                                    let index = emojiGame.cards.firstIndex(matching: card)
+                                    CardView(cardGameType: emojiGame.nameGame, colorTheme: emojiGame.getColorTheme(), card: card, colorShapeI: UIColor(hexString: card.colorCardforShape),fillShapeI: card.fillShapeCard)
+                                        .onTapGesture{
+                                            withAnimation(.linear(duration:0.5)){
+                                                emojiGame.choose(card)
+
+                                            }
+                                        }
+                                        .transition(AnyTransition.offset(
+                                            randomLocationOffScreen(for: geometry.size)
+                                        ))
                                 }
                             }
+                            .onAppear {
+                                DispatchQueue.main.async {
+                                    withAnimation(Animation.easeInOut) {
+                                         emojiGame.dealCards()
+                                    }
+                                }
 
-                            Text("Your Score is : \(emojiGame.score)")
-                                .font(.system(size: 20))
-                                .padding()
-//                        }
+                            }
 
-                        
+
+                        }
+                        else{
+                        Text("You have completed the Game")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 30))
+                            .padding()
+                            .animation(.easeInOut(duration: 5))
+    //                        HStack{
+                                Button("new game"){
+                                    withAnimation(.easeInOut(duration:0.75)){
+                                        emojiGame.startNewGame()
+                                    }
+                                }
+
+                                Text("Your Score is : \(emojiGame.score)")
+                                    .font(.system(size: 20))
+                                    .padding()
+    //                        }
+
+                            
+                        }
                     }
+                    .foregroundColor(.blue)
+                        
                 }
-                .foregroundColor(.blue)
-                    
             }
-        }
+                    
+                    
+                    
+                }
+ 
     }
     private let desiredCardWidth: CGFloat = 100
     

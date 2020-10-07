@@ -20,7 +20,8 @@ struct GameOptionView: View {
             Text(nameGameTitle).bold()
                 .font(.title)
                 .padding(.bottom)
-            Text("Themes").bold()
+            
+            Text("Themes").bold().padding(.top)
             
             Picker("Themes",selection: $selectionThemes) {
                 Text("Select Theme")
@@ -51,6 +52,7 @@ struct GameOptionView: View {
                             )
                         )
                 { Text("▶️") }.padding()
+            
             Text("You selected: \(ThemesVM.getThemesforGames()[selectionThemes].getName())")
             Text("You selected: \(selectionPairs + 1) \(" pairs")")
             
