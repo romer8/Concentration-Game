@@ -52,8 +52,8 @@ struct Menu: View {
                                         NavigationLazyView(
                                              GameOptionView(nameGameTitle: GameMenu.getGameList()[selectedGame], ThemesVM: GameMenu.getThemesforGames(option: selectedGame)
                                         ))
-                                        .navigationBarTitle("", displayMode: .inline)
-                                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+                                        .edgesIgnoringSafeArea([.top, .bottom])
+
 
                                     )
                         { Image(systemName: "play.circle.fill").font(.system(size: 50))}
