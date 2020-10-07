@@ -15,28 +15,55 @@ struct Menu: View {
 
     var body: some View{
         NavigationView {
-            VStack{
-                Text("Concentration Games")
-                    .bold()
-                    .font(.system(size: 40))
-                    .multilineTextAlignment(.center)
-                    .padding()
 
-                Picker(selection: $selectedGame, label: Text("Select Your Story")) {
-                    ForEach(0 ..< GameMenu.getGameList().count) { gameli in
-                        NavigationLazyView(
-                            NavigationLink(GameMenu.getGameList()[gameli], destination: GameOptionView(nameGameTitle: GameMenu.getGameList()[gameli], ThemesVM: GameMenu.getThemesforGames(option: gameli)),isActive: $isActive)
-                        )
+        GeometryReader { geometry in
+            
+            ZStack{
+                Image("m1b")
+                   .resizable()
+                   .aspectRatio(geometry.size, contentMode: .fill)
+                   .edgesIgnoringSafeArea(.all)
+                    VStack{
+                        Text("Concentration Games")
+                            .bold()
+                            .font(.system(size: 40))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.white)
+
+                        Picker(selection: $selectedGame, label: Text("Select Your Story")) {
+                            ForEach(0 ..< GameMenu.getGameList().count) { gameli in
+                                Text(GameMenu.getGameList()[gameli])
+                                    .bold()
+
+                                    .foregroundColor(.white)
+
+
+                            }
+                        }
+                        .onChange(of: selectedGame, perform: { _ in
+                            isActive.toggle()
+                        })
+                        Text("You selected: \(GameMenu.getGameList()[selectedGame])")
+                            .bold()
+                            .padding(.bottom)
+                            .foregroundColor(.white)
+
+
+                        NavigationLink(destination:
+                                        NavigationLazyView(
+                                             GameOptionView(nameGameTitle: GameMenu.getGameList()[selectedGame], ThemesVM: GameMenu.getThemesforGames(option: selectedGame)
+                                        )).navigationBarTitle("", displayMode: .inline)
+
+                                    )
+                        { Image(systemName: "play.circle.fill").font(.system(size: 50))}
+
+
+
                     }
-                }
-                .onChange(of: selectedGame, perform: { _ in
-                    isActive.toggle()
-                })
-                .labelsHidden()
-                .frame(width: 150, height: 30, alignment: .center)
-                .padding()
-                
 
+                }
+                
+                
             }
         }
 
