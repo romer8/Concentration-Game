@@ -34,7 +34,6 @@ struct Menu: View {
                             ForEach(0 ..< GameMenu.getGameList().count) { gameli in
                                 Text(GameMenu.getGameList()[gameli])
                                     .bold()
-
                                     .foregroundColor(.white)
 
 
@@ -52,7 +51,9 @@ struct Menu: View {
                         NavigationLink(destination:
                                         NavigationLazyView(
                                              GameOptionView(nameGameTitle: GameMenu.getGameList()[selectedGame], ThemesVM: GameMenu.getThemesforGames(option: selectedGame)
-                                        )).navigationBarTitle("", displayMode: .inline)
+                                        ))
+                                        .navigationBarTitle("", displayMode: .inline)
+                                        .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 
                                     )
                         { Image(systemName: "play.circle.fill").font(.system(size: 50))}

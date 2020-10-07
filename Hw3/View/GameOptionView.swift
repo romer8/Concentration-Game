@@ -15,31 +15,61 @@ struct GameOptionView: View {
     
     @State var selectionPairs = 0
     @State var numberPairsLimit = 100
+    @State var fontColorView: Color = .white
     var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                if nameGameTitle == "Temple Match"{
+                    Image("sm1")
+                       .resizable()
+                       .aspectRatio(geometry.size, contentMode: .fill)
+                       .edgesIgnoringSafeArea(.all)
+                }
+                else if nameGameTitle == "EmojiMojo"{
+                    Image("sm2")
+                       .resizable()
+                       .aspectRatio(geometry.size, contentMode: .fill)
+                       .edgesIgnoringSafeArea(.all)
+                }
+                else if nameGameTitle == "Shape Match"{
+                    Image("sm3")
+                       .resizable()
+                       .aspectRatio(geometry.size, contentMode: .fill)
+                       .edgesIgnoringSafeArea(.all)
+                }
+
         VStack{
             Text(nameGameTitle).bold()
                 .font(.title)
+                .foregroundColor(fontColorView)
                 .padding(.bottom)
             
-            Text("Themes").bold().padding(.top)
+            Text("Themes").bold()
+                .foregroundColor(fontColorView)
+                .padding(.top)
             
             Picker("Themes",selection: $selectionThemes) {
                 Text("Select Theme")
                 ForEach(0 ..< ThemesVM.getThemesforGames().count) { themevm in
-                    Text(self.ThemesVM.getThemesforGames()[themevm].getName())
+                    Text(self.ThemesVM.getThemesforGames()[themevm].getName()).bold()
+                        .foregroundColor(fontColorView)
                     
-
                }
             }
             .labelsHidden()
-            .frame(width: 150, height: 30, alignment: .center)
+            .frame(width: 300, height: 30, alignment: .center)
             .clipped()
             
-            Text("Pairs").bold()
+            Text("Pairs")
+                .bold()
+                .foregroundColor(fontColorView)
+
 
             Picker("Number of Pairs", selection: $selectionPairs){
                 ForEach(1 ..< (ThemesVM.getThemesforGames()[selectionThemes].getEmojis().count + 1 < numberPairsLimit ? ThemesVM.getThemesforGames()[selectionThemes].getEmojis().count + 1: numberPairsLimit + 1 )) {
-                    Text("\($0) pairs")
+                    Text("\($0) pairs").bold()
+                        .foregroundColor(fontColorView)
+
                 }
             }.id(selectionThemes)
             .labelsHidden()
@@ -55,17 +85,24 @@ struct GameOptionView: View {
                 { Text("▶️") }.padding()
             
             Text("You selected: \(ThemesVM.getThemesforGames()[selectionThemes].getName())")
+                .foregroundColor(fontColorView)
+
             Text("You selected: \(selectionPairs + 1) \(" pairs")")
+                .foregroundColor(fontColorView)
+
             
             NavigationLink(destination: NavigationLazyView(
                 ScoresView(themesNames: ThemesVM.getGameThemes(), gameTitle: nameGameTitle)) )
             {HStack(spacing: 10) {
                 Image(systemName: "square.and.pencil")
                 Text("Scores")
+                    .foregroundColor(fontColorView)
+
             } }.padding()
 
         }
-        
+            }
+        }
     }
 }
 
