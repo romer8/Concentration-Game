@@ -18,10 +18,9 @@ struct Menu: View {
         GeometryReader { geometry in
             
             ZStack{
-                Image("m1b")
-                   .resizable()
-                   .aspectRatio(geometry.size, contentMode: .fill)
-                   .edgesIgnoringSafeArea(.all)
+                Color(.black)
+                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+
                     VStack{
                         Text("Concentration Games")
                             .bold()
@@ -41,7 +40,7 @@ struct Menu: View {
                         .onChange(of: selectedGame, perform: { _ in
                             isActive.toggle()
                         })
-                        Text("You selected: \(GameMenu.getGameList()[selectedGame])")
+                        Text("Play: \(GameMenu.getGameList()[selectedGame])")
                             .bold()
                             .padding(.bottom)
                             .foregroundColor(.white)

@@ -62,10 +62,18 @@ struct EmojiConcentrationGameView: View{
                             .aspectRatio(geometry.size, contentMode: .fill)
                             .edgesIgnoringSafeArea(.all)
                     }
-//                    else if {
-//                        
-//                        
-//                    }
+                    else if emojiGame.nameGame == "EmojiMojo"{
+                        Image("m1b")
+                           .resizable()
+                           .aspectRatio(geometry.size, contentMode: .fill)
+                           .edgesIgnoringSafeArea(.all)
+                    }
+                    else if emojiGame.nameGame == "Temple Match"{
+                        Image("templeb")
+                           .resizable()
+                           .aspectRatio(geometry.size, contentMode: .fill)
+                           .edgesIgnoringSafeArea(.all)
+                    }
 
                 VStack{
 

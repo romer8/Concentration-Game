@@ -41,23 +41,23 @@ class GamesViewModel{
         let europeTemples: [String] = ["e1","e2","e3","e4","e5","e6","e7","e8","e9","e10","e11"]
 
         
-        let utahTemplesTheme = ThemeViewModel(name: "Utah Temples", color: randomHexColorCode(), emojis: utahTemples)
+        let utahTemplesTheme = ThemeViewModel(name: "Utah Temples", color: "FF00FF", emojis: utahTemples)
         UserDefaults.standard.set ("Never Played", forKey: "Utah Temples")
 
-        let southAmericaTemplesTheme = ThemeViewModel(name: "South America Temples", color: randomHexColorCode(), emojis: southAmericaTemples)
+        let southAmericaTemplesTheme = ThemeViewModel(name: "South America Temples", color: "69960e", emojis: southAmericaTemples)
         
         UserDefaults.standard.set ("Never Played", forKey: "South America Temples")
 
-        let centralAmericaTemplesTheme = ThemeViewModel(name: "Central America Temples", color: randomHexColorCode(), emojis: centralAmericaTemples)
+        let centralAmericaTemplesTheme = ThemeViewModel(name: "Central America Temples", color: "ffa500", emojis: centralAmericaTemples)
         
         UserDefaults.standard.set ("Never Played", forKey: "Central America Temples")
 
-        let northAmericaTemplesTheme = ThemeViewModel(name: "North America Temples", color: randomHexColorCode(), emojis: northAmericaTemples)
+        let northAmericaTemplesTheme = ThemeViewModel(name: "North America Temples", color: "87ceeb", emojis: northAmericaTemples)
         
         UserDefaults.standard.set ("Never Played", forKey: "North America Temples")
 
         
-        let europeTemplesTheme = ThemeViewModel(name: "Europe Temples", color: randomHexColorCode(), emojis: europeTemples)
+        let europeTemplesTheme = ThemeViewModel(name: "Europe Temples", color: "ffc0cb", emojis: europeTemples)
         
         UserDefaults.standard.set ("Never Played", forKey: "Europe Temples")
 
@@ -170,7 +170,7 @@ class GamesViewModel{
         
         UserDefaults.standard.set ("Never Played", forKey: "Food Drinks")
 
-        let animalsTheme = ThemeViewModel(name: "Animals", color: "ffa500", emojis: animals)
+        let animalsTheme = ThemeViewModel(name: "Animals", color: "FF69B4", emojis: animals)
         
         UserDefaults.standard.set ("Never Played", forKey: "Animals")
 
@@ -178,7 +178,7 @@ class GamesViewModel{
         
         UserDefaults.standard.set ("Never Played", forKey: "Body")
 
-        let peopleTheme = ThemeViewModel(name: "People", color: "ffc0cb ", emojis: people)
+        let peopleTheme = ThemeViewModel(name: "People", color: "ffc0cb", emojis: people)
         
         UserDefaults.standard.set ("Never Played", forKey: "People")
 
@@ -245,6 +245,7 @@ class GamesViewModel{
     
     static func randomHexColorCode() -> String{
         let a = ["1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+        print(a[Int(arc4random_uniform(15))].appending(a[Int(arc4random_uniform(15))]).appending(a[Int(arc4random_uniform(15))]))
         return a[Int(arc4random_uniform(15))].appending(a[Int(arc4random_uniform(15))]).appending(a[Int(arc4random_uniform(15))])
     }
     

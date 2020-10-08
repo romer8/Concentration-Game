@@ -33,7 +33,7 @@ struct GameOptionView: View {
                        .edgesIgnoringSafeArea(.all)
                 }
                 else if nameGameTitle == "Shape Match"{
-                    Image("sm3")
+                    Image("sm")
                        .resizable()
                        .aspectRatio(geometry.size, contentMode: .fill)
                        .edgesIgnoringSafeArea(.all)
