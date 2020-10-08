@@ -45,6 +45,13 @@ struct CardView: View{
                                                         startBonusTimeAnimation()
                                                     }
                             }
+                            else if cardGameType == "Shape Match"{
+                                HorizontalProgressBar(startAngle: angle2(for: 0),
+                                                      endAngle: angle2(for: animatedBonusRemaining)
+                                                      ,clockwise: false).onAppear(){
+                                                        startBonusTimeAnimation()
+                                                    }
+                            }
                             
                             
                         }
@@ -54,6 +61,11 @@ struct CardView: View{
 
                             }
                             else if cardGameType == "Temple Match"{
+                                HorizontalProgressBar(startAngle: angle2(for: 0),
+                                                      endAngle: angle2(for: animatedBonusRemaining)
+                                                      ,clockwise: false)
+                            }
+                            else if cardGameType == "Shape Match"{
                                 HorizontalProgressBar(startAngle: angle2(for: 0),
                                                       endAngle: angle2(for: animatedBonusRemaining)
                                                       ,clockwise: false)
