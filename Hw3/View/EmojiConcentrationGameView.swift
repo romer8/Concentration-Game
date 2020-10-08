@@ -63,7 +63,7 @@ struct EmojiConcentrationGameView: View{
                             .edgesIgnoringSafeArea(.all)
                     }
                     else if emojiGame.nameGame == "EmojiMojo"{
-                        Image("m1b")
+                        Image("sme1")
                            .resizable()
                            .aspectRatio(geometry.size, contentMode: .fill)
                            .edgesIgnoringSafeArea(.all)
@@ -158,7 +158,7 @@ struct EmojiConcentrationGameView: View{
                             
                         }
                     }
-                    .foregroundColor(.blue)
+                    .foregroundColor(.white)
                         
                 }
                 }.padding(.top, geometry.size.height * 0.1)
