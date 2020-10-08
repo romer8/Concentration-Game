@@ -53,10 +53,22 @@ struct EmojiConcentrationGameView: View{
     }
     
     var body:some View {
+ 
             GeometryReader { geometry in
-            
+
+                ZStack{
+                    if emojiGame.nameGame == "Shape Match"{
+                        Rectangle().stripes(angle: 30, colorStripe: UIColor(hexString: emojiGame.getColorTheme()))
+                            .aspectRatio(geometry.size, contentMode: .fill)
+                            .edgesIgnoringSafeArea(.all)
+                    }
+//                    else if {
+//                        
+//                        
+//                    }
+
                 VStack{
-                    
+
                     HStack{
                         VStack{
                             Toggle(isOn: self.$emojiGame.actSound) {
@@ -68,19 +80,22 @@ struct EmojiConcentrationGameView: View{
                                     emojiGame.startNewGame()
                             }
                         }) {
-                            Image(systemName: "goforward")
+                            Image(systemName: "goforward").foregroundColor(.white)
                         }
 
                         Spacer()
                         Spacer()
                         Text("Score: \(emojiGame.score)")
                             .font(.system(size: 15))
+                            .foregroundColor(.white)
 
                     }
+//                    .background(Color.black)
                     .padding()
                     Text(emojiGame.themeVM.getName())
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .bold()
+//                        .background(Color.black)
                         .foregroundColor(Color(UIColor(hexString: emojiGame.getColorTheme())))
                     ScrollView{
 
@@ -138,10 +153,10 @@ struct EmojiConcentrationGameView: View{
                     .foregroundColor(.blue)
                         
                 }
+                }.padding(.top, geometry.size.height * 0.1)
+                    
+                    
             }
-                    
-                    
-                    
                 }
  
     }

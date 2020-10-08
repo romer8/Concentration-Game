@@ -24,6 +24,7 @@ struct GameOptionView: View {
                        .resizable()
                        .aspectRatio(geometry.size, contentMode: .fill)
                        .edgesIgnoringSafeArea(.all)
+//                    fontColorView = nameGameTitle != "Temple Match" ? .white : .black
                 }
                 else if nameGameTitle == "EmojiMojo"{
                     Image("sm2")
@@ -41,19 +42,19 @@ struct GameOptionView: View {
         VStack{
             Text(nameGameTitle).bold()
                 .font(.title)
-                .foregroundColor(fontColorView)
+                .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
                 .padding(.bottom)
             
             Text("Themes").bold()
-                .foregroundColor(fontColorView)
+                .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
                 .padding(.top)
             
             Picker("Themes",selection: $selectionThemes) {
                 Text("Select Theme")
                 ForEach(0 ..< ThemesVM.getThemesforGames().count) { themevm in
                     Text(self.ThemesVM.getThemesforGames()[themevm].getName()).bold()
-                        .foregroundColor(fontColorView)
-                    
+                        .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
+
                }
             }
             .labelsHidden()
@@ -62,13 +63,13 @@ struct GameOptionView: View {
             
             Text("Pairs")
                 .bold()
-                .foregroundColor(fontColorView)
+                .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
 
 
             Picker("Number of Pairs", selection: $selectionPairs){
                 ForEach(1 ..< (ThemesVM.getThemesforGames()[selectionThemes].getEmojis().count + 1 < numberPairsLimit ? ThemesVM.getThemesforGames()[selectionThemes].getEmojis().count + 1: numberPairsLimit + 1 )) {
                     Text("\($0) pairs").bold()
-                        .foregroundColor(fontColorView)
+                        .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
 
                 }
             }.id(selectionThemes)
@@ -79,16 +80,19 @@ struct GameOptionView: View {
                             NavigationLazyView(
                                 EmojiConcentrationGameView(emojiGame:EmojiConcentrationGame(name: nameGameTitle, themevm: ThemesVM.getGameTheme(themeName: ThemesVM.getThemesforGames()[selectionThemes].getName()), numberCards: selectionPairs))
                             
-                            ).navigationBarTitle("", displayMode: .inline)
+                            )
+//                            .navigationBarTitle("", displayMode: .inline)
+                            .edgesIgnoringSafeArea([.top, .bottom])
+
 
                         )
                 { Text("▶️") }.padding()
             
             Text("You selected: \(ThemesVM.getThemesforGames()[selectionThemes].getName())")
-                .foregroundColor(fontColorView)
+                .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
 
             Text("You selected: \(selectionPairs + 1) \(" pairs")")
-                .foregroundColor(fontColorView)
+                .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
 
             
             NavigationLink(destination: NavigationLazyView(
@@ -96,7 +100,7 @@ struct GameOptionView: View {
             {HStack(spacing: 10) {
                 Image(systemName: "square.and.pencil")
                 Text("Scores")
-                    .foregroundColor(fontColorView)
+                    .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
 
             } }.padding()
 

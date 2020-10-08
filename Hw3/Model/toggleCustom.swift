@@ -14,6 +14,7 @@ struct SoundToggleStyle: ToggleStyle {
             configuration.label
             Image(systemName: configuration.isOn ? "speaker" : "speaker.slash")
                 .resizable()
+                .foregroundColor(.white)
                 .frame(width: 14, height: 15)
                 .onTapGesture { configuration.isOn.toggle() }
         }
