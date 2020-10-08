@@ -103,7 +103,6 @@ struct GameOptionView: View {
 
             {HStack(spacing: 10) {
                 Image(systemName: "square.and.pencil")                    .font(.system(size: 30))
-
                 Text("Scores")
                     .font(.system(size: 30))
                     .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)

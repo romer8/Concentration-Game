@@ -76,6 +76,10 @@ struct EmojiConcentrationGameView: View{
                     }
 
                 VStack{
+                    Text(emojiGame.themeVM.getName())
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .bold()
+                        .foregroundColor(Color(UIColor(hexString: emojiGame.getColorTheme())))
                     if(emojiGame.getRemainingPairs() > 0){
                         HStack{
                             VStack{
@@ -98,13 +102,8 @@ struct EmojiConcentrationGameView: View{
                         }
                         .padding()
                     }
-
-                    Text(emojiGame.themeVM.getName())
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .bold()
-                        .foregroundColor(Color(UIColor(hexString: emojiGame.getColorTheme())))
                     ScrollView{
-
+ 
                     VStack {
                         if(emojiGame.getRemainingPairs() > 0){
                             LazyVGrid(columns: columns(for:

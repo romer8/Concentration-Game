@@ -16,7 +16,6 @@ struct ScoresView: View {
             let tmp = UserDefaults.standard.object(forKey: theme) as? String ?? ""
             tmpArray.append(tmp)
         }
-        print(tmpArray)
         return tmpArray
     }
     
@@ -42,7 +41,7 @@ struct ScoresView: View {
                         .edgesIgnoringSafeArea(.all)
                 }
                 ScrollView {
-                    Text(gameTitle).font(.title).foregroundColor(.white)
+                    Text(gameTitle).foregroundColor(.white)
                      LazyVGrid(columns: columns) {
                         ForEach(themesNames, id: \.self) {theme in
                             let index = themesNames.firstIndex(of: theme)
