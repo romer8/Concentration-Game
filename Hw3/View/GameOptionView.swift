@@ -24,7 +24,6 @@ struct GameOptionView: View {
                        .resizable()
                        .aspectRatio(geometry.size, contentMode: .fill)
                        .edgesIgnoringSafeArea(.all)
-//                    fontColorView = nameGameTitle != "Temple Match" ? .white : .black
                 }
                 else if nameGameTitle == "EmojiMojo"{
                     Image("sm2")
@@ -95,11 +94,18 @@ struct GameOptionView: View {
                 .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
 
             
-            NavigationLink(destination: NavigationLazyView(
-                ScoresView(themesNames: ThemesVM.getGameThemes(), gameTitle: nameGameTitle)) )
+            NavigationLink(destination:
+                            NavigationLazyView(
+                                ScoresView(themesNames: ThemesVM.getGameThemes(), gameTitle: nameGameTitle)
+                            ).edgesIgnoringSafeArea([.top, .bottom])
+
+            )
+
             {HStack(spacing: 10) {
-                Image(systemName: "square.and.pencil")
+                Image(systemName: "square.and.pencil")                    .font(.system(size: 30))
+
                 Text("Scores")
+                    .font(.system(size: 30))
                     .foregroundColor(nameGameTitle != "Temple Match" ? .white : .black)
 
             } }.padding()

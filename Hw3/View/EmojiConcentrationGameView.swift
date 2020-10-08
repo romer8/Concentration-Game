@@ -76,34 +76,32 @@ struct EmojiConcentrationGameView: View{
                     }
 
                 VStack{
-
-                    HStack{
-                        VStack{
-                            Toggle(isOn: self.$emojiGame.actSound) {
-                            }.toggleStyle(SoundToggleStyle())
-                        }
-                        Button(action: {
-                            print("Button was tapped")
-                            withAnimation(.easeInOut(duration:0.75)){
-                                    emojiGame.startNewGame()
+                    if(emojiGame.getRemainingPairs() > 0){
+                        HStack{
+                            VStack{
+                                Toggle(isOn: self.$emojiGame.actSound) {
+                                }.toggleStyle(SoundToggleStyle())
                             }
-                        }) {
-                            Image(systemName: "goforward").foregroundColor(.white)
+                            Button(action: {
+                                withAnimation(.easeInOut(duration:0.75)){
+                                        emojiGame.startNewGame()
+                                }
+                            }) {
+                                Image(systemName: "goforward").foregroundColor(.white)
+                            }
+
+                            Spacer()
+                            Spacer()
+                            Text("Score: \(emojiGame.score)")
+                                .font(.system(size: 20))
+                                .foregroundColor(.white)
                         }
-
-                        Spacer()
-                        Spacer()
-                        Text("Score: \(emojiGame.score)")
-                            .font(.system(size: 15))
-                            .foregroundColor(.white)
-
+                        .padding()
                     }
-//                    .background(Color.black)
-                    .padding()
+
                     Text(emojiGame.themeVM.getName())
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .bold()
-//                        .background(Color.black)
                         .foregroundColor(Color(UIColor(hexString: emojiGame.getColorTheme())))
                     ScrollView{
 
@@ -143,17 +141,18 @@ struct EmojiConcentrationGameView: View{
                             .font(.system(size: 30))
                             .padding()
                             .animation(.easeInOut(duration: 5))
-    //                        HStack{
-                                Button("new game"){
-                                    withAnimation(.easeInOut(duration:0.75)){
+                            Button(action: {
+                                withAnimation(.easeInOut(duration:0.75)){
                                         emojiGame.startNewGame()
-                                    }
                                 }
+                            }) {
+                                Image(systemName: "goforward").foregroundColor(.white)                                    .font(.system(size: 40))
+
+                            }
 
                                 Text("Your Score is : \(emojiGame.score)")
                                     .font(.system(size: 20))
                                     .padding()
-    //                        }
 
                             
                         }

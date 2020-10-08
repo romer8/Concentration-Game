@@ -23,21 +23,42 @@ struct ScoresView: View {
     var columns: [GridItem] =
             Array(repeating: .init(.flexible()), count: 1)
     var body: some View {
-        Text(gameTitle).font(.title)
-        ScrollView {
-             LazyVGrid(columns: columns) {
-                ForEach(themesNames, id: \.self) {theme in
-                    let index = themesNames.firstIndex(of: theme)
-                    HStack{
-                        Text(theme)
-                        Spacer()
-                        Spacer()
-                        Text(arrayScores[index ?? 0])
-                    }.padding()
+        GeometryReader { geometry in
 
+            ZStack{
+                if gameTitle == "Shape Match"{
+                    Rectangle().fill(Color.black)
+                        .aspectRatio(geometry.size, contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                }
+                else if gameTitle == "EmojiMojo"{
+                    Rectangle().fill(Color.pink)
+                        .aspectRatio(geometry.size, contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                }
+                else if gameTitle == "Temple Match"{
+                    Rectangle().fill(Color.purple)
+                        .aspectRatio(geometry.size, contentMode: .fill)
+                        .edgesIgnoringSafeArea(.all)
+                }
+                ScrollView {
+                    Text(gameTitle).font(.title).foregroundColor(.white)
+                     LazyVGrid(columns: columns) {
+                        ForEach(themesNames, id: \.self) {theme in
+                            let index = themesNames.firstIndex(of: theme)
+                            HStack{
+                                Text(theme).bold().foregroundColor(.white)
+                                Spacer()
+                                Spacer()
+                                Text(arrayScores[index ?? 0]).foregroundColor(.white)
+                            }.padding()
+
+                         }
+                     }
                  }
-             }
-         }
+                
+            }.padding(.top, geometry.size.height * 0.1)
+        }
         
     }
 }
